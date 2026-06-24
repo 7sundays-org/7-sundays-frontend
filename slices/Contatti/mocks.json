@@ -1,0 +1,38 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          { "type": "paragraph", "content": { "text": "Hai delle domande da farci?", "spans": [] } }
+        ]
+      },
+      "subtitle": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          { "type": "paragraph", "content": { "text": "Lascia i tuoi contatti per essere ricontattato da un membro del nostro staff.", "spans": [] } }
+        ]
+      },
+      "show_form": { "__TYPE__": "FieldContent", "type": "Boolean", "value": true },
+      "submit_label": { "__TYPE__": "FieldContent", "type": "Text", "value": "Invia" },
+      "email": { "__TYPE__": "FieldContent", "type": "Text", "value": "7sundays@7sundays.it" },
+      "phone": { "__TYPE__": "FieldContent", "type": "Text", "value": "+39 393 004 7956" },
+      "socials": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["platform", { "__TYPE__": "FieldContent", "type": "Select", "value": "instagram" }],
+              ["url", { "__TYPE__": "FieldContent", "type": "Link", "value": { "__TYPE__": "ExternalLink", "value": "https://instagram.com/7sundays" } }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

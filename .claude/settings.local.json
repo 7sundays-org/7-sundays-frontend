@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx eslint *)",
+      "Bash(npm run *)",
+      "Bash(cd *)",
+      "Bash(npx tsc *)",
+      "Bash(grep -rniE '#[0-9a-f]{3,8}' slices app components --include='*.tsx' --include='*.ts')"
+    ]
+  }
+}

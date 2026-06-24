@@ -1,0 +1,113 @@
+{
+  "format": "custom",
+  "id": "apartment",
+  "label": "Appartamento",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": "es. trastevere-suite"
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Nome",
+          "placeholder": "Nome dell'appartamento"
+        }
+      },
+      "location": {
+        "type": "Text",
+        "config": {
+          "label": "Località",
+          "placeholder": "Roma, Trastevere"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrizione",
+          "placeholder": "Descrizione dell'appartamento",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
+      "cover_image": {
+        "type": "Image",
+        "config": {
+          "label": "Immagine di copertina",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "gallery": {
+        "type": "Group",
+        "config": {
+          "label": "Galleria",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Immagine",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "rooms": {
+        "type": "Number",
+        "config": {
+          "label": "Numero camere"
+        }
+      },
+      "guests": {
+        "type": "Number",
+        "config": {
+          "label": "Ospiti max"
+        }
+      },
+      "booking_url": {
+        "type": "Link",
+        "config": {
+          "label": "Link prenotazione",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

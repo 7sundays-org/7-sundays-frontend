@@ -1,0 +1,202 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero full-bleed con titolo, paragrafo, CTA e immagine di sfondo. Variazioni: default (2 CTA), singleCta, withSlider.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Hero con due CTA",
+      "imageUrl": "",
+      "primary": {
+        "title_1": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo - riga 1",
+            "placeholder": "Everything, handled."
+          }
+        },
+        "title_2": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo - riga 2 (opzionale)",
+            "placeholder": ""
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragrafo",
+            "placeholder": "Thoughtful property management and curated stays in Milan.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "hero_image": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine di sfondo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "buttons": {
+          "type": "Group",
+          "config": {
+            "label": "CTA",
+            "fields": {
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Testo bottone",
+                  "placeholder": "Hai una proprietà"
+                }
+              },
+              "button_href": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "label": "Variante",
+                  "options": ["primary", "ghost"],
+                  "default_value": "primary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "singleCta",
+      "name": "Single CTA",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Hero con una sola CTA",
+      "imageUrl": "",
+      "primary": {
+        "title_1": {
+          "type": "Text",
+          "config": { "label": "Titolo - riga 1", "placeholder": "" }
+        },
+        "title_2": {
+          "type": "Text",
+          "config": { "label": "Titolo - riga 2 (opzionale)", "placeholder": "" }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragrafo",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "hero_image": {
+          "type": "Image",
+          "config": { "label": "Immagine di sfondo", "constraint": {}, "thumbnails": [] }
+        },
+        "buttons": {
+          "type": "Group",
+          "config": {
+            "label": "CTA",
+            "fields": {
+              "button_text": {
+                "type": "Text",
+                "config": { "label": "Testo bottone", "placeholder": "" }
+              },
+              "button_href": {
+                "type": "Link",
+                "config": { "label": "Link", "select": null, "allowTargetBlank": true }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "label": "Variante",
+                  "options": ["primary", "ghost"],
+                  "default_value": "primary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "withSlider",
+      "name": "With Slider",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Hero con slider di immagini",
+      "imageUrl": "",
+      "primary": {
+        "title_1": {
+          "type": "Text",
+          "config": { "label": "Titolo - riga 1", "placeholder": "" }
+        },
+        "title_2": {
+          "type": "Text",
+          "config": { "label": "Titolo - riga 2 (opzionale)", "placeholder": "" }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragrafo",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "hero_image": {
+          "type": "Image",
+          "config": { "label": "Immagine fallback", "constraint": {}, "thumbnails": [] }
+        },
+        "buttons": {
+          "type": "Group",
+          "config": {
+            "label": "CTA",
+            "fields": {
+              "button_text": {
+                "type": "Text",
+                "config": { "label": "Testo bottone", "placeholder": "" }
+              },
+              "button_href": {
+                "type": "Link",
+                "config": { "label": "Link", "select": null, "allowTargetBlank": true }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "label": "Variante",
+                  "options": ["primary", "ghost"],
+                  "default_value": "primary"
+                }
+              }
+            }
+          }
+        },
+        "slider_images": {
+          "type": "Group",
+          "config": {
+            "label": "Slider immagini",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

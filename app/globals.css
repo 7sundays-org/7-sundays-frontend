@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * PP Fragment (Pangram Pangram) — commercial font, not on Google Fonts.
+ * Drop the licensed files into /public/fonts/ with the names below and they
+ * load automatically. Until then, headings fall back to the system serif.
+ */
+@font-face {
+  font-family: "PP Fragment";
+  src: url("/fonts/PPFragment-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Fragment";
+  src: url("/fonts/PPFragment-ExtraBoldItalic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Brand palette — usable directly as bg-*, text-*, border-*, etc. */
+@theme {
+  --color-blue-state: #525c75; /* Primary Brand — CTAs, focused/active states */
+  --color-tea-green: #d1edcd; /* Secondary Brand — links */
+  --color-sandy-clay: #e7ae8d; /* Tertiary Brand — accenting, illustrations */
+  --color-lilac-ash: #c6a6b4; /* Tertiary Brand — valid fields, success messages */
+  --color-porcelain: #f7f8f4; /* Background — valid fields, success messages */
+  --color-gun-metal: #3c3c41; /* Text — body text */
+  --color-dusty-rose: #dac2cb; /* Tertiary tint — rosa antico (CategoryShowcase bg) */
+  --color-placeholder: #9e9e9e; /* Neutral — testo placeholder degli input */
+  --color-peach: #f1c7ad; /* CTA — cerchio di hover che segue il cursore */
+  --color-blue-ink: #4a546b; /* Testo card categoria — eyebrow, titolo, CTA */
+
+  /* Semantic aliases */
+  --color-brand-primary: var(--color-blue-state);
+  --color-brand-secondary: var(--color-tea-green);
+
+  /* Font families */
+  --font-sans:
+    var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "PP Fragment", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Semantic tokens (shadcn-compatible), mapped onto the brand palette */
+:root {
+  --radius: 0.625rem;
+
+  --background: var(--color-porcelain);
+  --foreground: var(--color-gun-metal);
+
+  --card: #ffffff;
+  --card-foreground: var(--color-gun-metal);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-gun-metal);
+
+  --primary: var(--color-blue-state);
+  --primary-foreground: var(--color-porcelain);
+
+  --secondary: var(--color-tea-green);
+  --secondary-foreground: var(--color-gun-metal);
+
+  --accent: var(--color-sandy-clay);
+  --accent-foreground: var(--color-gun-metal);
+
+  --muted: color-mix(in oklch, var(--color-gun-metal) 6%, var(--color-porcelain));
+  --muted-foreground: color-mix(
+    in oklch,
+    var(--color-gun-metal) 55%,
+    var(--color-porcelain)
+  );
+
+  /* Success / valid states */
+  --success: var(--color-lilac-ash);
+  --success-foreground: var(--color-gun-metal);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: color-mix(in oklch, var(--color-gun-metal) 14%, var(--color-porcelain));
+  --input: color-mix(in oklch, var(--color-gun-metal) 14%, var(--color-porcelain));
+  --ring: var(--color-blue-state);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+.dark {
+  --background: var(--color-gun-metal);
+  --foreground: var(--color-porcelain);
+
+  --card: color-mix(in oklch, var(--color-gun-metal) 88%, white);
+  --card-foreground: var(--color-porcelain);
+  --popover: color-mix(in oklch, var(--color-gun-metal) 88%, white);
+  --popover-foreground: var(--color-porcelain);
+
+  --primary: color-mix(in oklch, var(--color-blue-state) 65%, white);
+  --primary-foreground: var(--color-gun-metal);
+
+  --secondary: var(--color-tea-green);
+  --secondary-foreground: var(--color-gun-metal);
+
+  --accent: var(--color-sandy-clay);
+  --accent-foreground: var(--color-gun-metal);
+
+  --muted: color-mix(in oklch, var(--color-porcelain) 12%, var(--color-gun-metal));
+  --muted-foreground: color-mix(
+    in oklch,
+    var(--color-porcelain) 60%,
+    var(--color-gun-metal)
+  );
+
+  --success: var(--color-lilac-ash);
+  --success-foreground: var(--color-gun-metal);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: color-mix(in oklch, var(--color-porcelain) 14%, var(--color-gun-metal));
+  --input: color-mix(in oklch, var(--color-porcelain) 18%, var(--color-gun-metal));
+  --ring: color-mix(in oklch, var(--color-blue-state) 65%, white);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/*
+ * Typography scale — apply these as utilities (support variants, e.g. md:text-h1).
+ * Sizes/weights follow the brand spec.
+ */
+
+/* Title / Header 1 — PP Fragment, ExtraBold, 64px, tracking -2 */
+@utility text-h1 {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 4rem; /* 64px */
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+@utility text-title {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 4rem; /* 64px */
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+/* Header 2 — Plus Jakarta Sans, Bold, 45px */
+@utility text-h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 2.8125rem; /* 45px */
+  line-height: 1.1;
+}
+
+/* Header 2 Italic — Plus Jakarta Sans, Bold Italic, 45px */
+@utility text-h2-italic {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2.8125rem; /* 45px */
+  line-height: 1.1;
+}
+
+/* Header 3 — Plus Jakarta Sans, Bold Italic, 30px */
+@utility text-h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.875rem; /* 30px */
+  line-height: 1.2;
+}
+
+/* Header 4 / Special Head — PP Fragment, ExtraBold, 40px, line-height 45 */
+@utility text-h4 {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 2.5rem; /* 40px */
+  line-height: 2.8125rem; /* 45px */
+}
+
+/* Subtitle — Plus Jakarta Sans, Bold Italic, 25px */
+@utility text-subtitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.5625rem; /* 25px */
+  line-height: 1.2;
+}
+
+/* Buttons — Plus Jakarta Sans, ExtraBold, 22px */
+@utility text-button {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.375rem; /* 22px */
+  line-height: 1;
+}
+
+/* Body title — Plus Jakarta Sans, Bold, 25px, line-height 30 */
+@utility text-body-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.5625rem; /* 25px */
+  line-height: 1.875rem; /* 30px */
+}
+
+/* Body — Plus Jakarta Sans, Regular, 25px, line-height 30 */
+@utility text-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.5625rem; /* 25px */
+  line-height: 1.875rem; /* 30px */
+}

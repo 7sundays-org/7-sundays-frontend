@@ -1,0 +1,55 @@
+{
+  "id": "category_showcase",
+  "type": "SharedSlice",
+  "name": "CategoryShowcase",
+  "description": "Sezione con scroll orizzontale a card (Proprietari / Host / Consulenze).",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "Card",
+            "fields": {
+              "eyebrow": {
+                "type": "Text",
+                "config": { "label": "Eyebrow", "placeholder": "Hai un immobile?" }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Titolo",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              },
+              "link": {
+                "type": "Link",
+                "config": { "label": "Link", "select": null, "allowTargetBlank": true }
+              },
+              "cta_label": {
+                "type": "Text",
+                "config": { "label": "Testo CTA", "placeholder": "Scopri di più" }
+              },
+              "background_color": {
+                "type": "Color",
+                "config": { "label": "Colore di sfondo card" }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

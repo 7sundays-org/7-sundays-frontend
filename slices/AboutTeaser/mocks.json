@@ -1,0 +1,46 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "eyebrow": { "__TYPE__": "FieldContent", "type": "Text", "value": "Chi siamo" },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Un team che cura Milano, una proprietà alla volta.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "paragraph": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": []
+      },
+      "image": {
+        "__TYPE__": "FieldContent",
+        "type": "Image",
+        "value": {
+          "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=2000&q=80", "width": 2000, "height": 1200 },
+          "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=2000&q=80",
+          "width": 2000,
+          "height": 1200,
+          "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } },
+          "credits": null,
+          "alt": "Team 7 Sundays"
+        }
+      },
+      "cta_text": { "__TYPE__": "FieldContent", "type": "Text", "value": "Conosciamoci" },
+      "cta_link": {
+        "__TYPE__": "FieldContent",
+        "type": "Link",
+        "value": { "__TYPE__": "ExternalLink", "value": "/about" }
+      }
+    }
+  }
+]

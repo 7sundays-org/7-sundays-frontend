@@ -1,0 +1,39 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "phrase": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Ogni dettaglio. Ogni soggiorno. Ogni giorno.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "subtitle": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Milano curata in ogni dettaglio. Per chi la abita, per chi la affitta, per chi la gestisce.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "background_color": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "light"
+      }
+    }
+  }
+]

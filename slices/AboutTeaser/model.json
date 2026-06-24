@@ -1,0 +1,52 @@
+{
+  "id": "about_teaser",
+  "type": "SharedSlice",
+  "name": "AboutTeaser",
+  "description": "Anteprima sezione 'Chi siamo' con immagine grande e CTA.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": { "label": "Eyebrow", "placeholder": "Chi siamo" }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Lorem ipsum dolor sit amet.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragrafo (opzionale)",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": { "label": "Testo CTA", "placeholder": "Conosciamoci" }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": { "label": "Link CTA", "select": null, "allowTargetBlank": true }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "format": "custom",
+  "id": "testimonial",
+  "label": "Testimonianza",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "author_name": {
+        "type": "Text",
+        "config": {
+          "label": "Nome",
+          "placeholder": "Nome dell'autore"
+        }
+      },
+      "author_role": {
+        "type": "Text",
+        "config": {
+          "label": "Ruolo / Profilo",
+          "placeholder": "Es. Proprietario, Ospite, Host"
+        }
+      },
+      "author_image": {
+        "type": "Image",
+        "config": {
+          "label": "Foto",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "quote": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Quote",
+          "placeholder": "Testo della testimonianza",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Categoria",
+          "placeholder": "",
+          "options": ["proprietario", "ospite", "host"],
+          "default_value": "ospite"
+        }
+      }
+    }
+  }
+}

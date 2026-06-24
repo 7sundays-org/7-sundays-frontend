@@ -1,0 +1,44 @@
+{
+  "id": "evocative_phrase",
+  "type": "SharedSlice",
+  "name": "EvocativePhrase",
+  "description": "Banner full-width con una frase evocativa centrata.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "phrase": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Frase",
+            "placeholder": "Every detail. Every stay. Every Sunday.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sottotitolo (opzionale)",
+            "placeholder": "Milano curata in ogni dettaglio.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Sfondo",
+            "options": ["light", "dark", "primary"],
+            "default_value": "light"
+          }
+        }
+      }
+    }
+  ]
+}

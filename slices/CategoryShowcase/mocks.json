@@ -1,0 +1,35 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "cards": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["eyebrow", { "__TYPE__": "FieldContent", "type": "Text", "value": "Hai un immobile?" }],
+              ["title", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Affidaci la gestione del tuo immobile, dalla A alla Z.", "spans": [] } }] }],
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80", "width": 1200, "height": 800 }, "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80", "width": 1200, "height": 800, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Cucina di design" } }],
+              ["link", { "__TYPE__": "FieldContent", "type": "Link", "value": { "__TYPE__": "ExternalLink", "value": "/proprietario" } }],
+              ["cta_label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Scopri di più" }],
+              ["background_color", { "__TYPE__": "FieldContent", "type": "Color", "value": "#DAC2CB" }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["eyebrow", { "__TYPE__": "FieldContent", "type": "Text", "value": "Sei un host?" }],
+              ["title", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Cresci con i nostri servizi di hosting curati.", "spans": [] } }] }],
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80", "width": 1200, "height": 800 }, "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80", "width": 1200, "height": 800, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Soggiorno luminoso" } }],
+              ["link", { "__TYPE__": "FieldContent", "type": "Link", "value": { "__TYPE__": "ExternalLink", "value": "/hosting" } }],
+              ["cta_label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Scopri di più" }],
+              ["background_color", { "__TYPE__": "FieldContent", "type": "Color", "value": "#DAC2CB" }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

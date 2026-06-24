@@ -1,0 +1,27 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": []
+      },
+      "display_mode": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "carousel"
+      },
+      "filter_category": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": null
+      },
+      "testimonials": {
+        "__TYPE__": "GroupContentType",
+        "value": []
+      }
+    }
+  }
+]

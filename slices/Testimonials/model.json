@@ -1,0 +1,58 @@
+{
+  "id": "testimonials",
+  "type": "SharedSlice",
+  "name": "Testimonials",
+  "description": "Sezione testimonianze con carousel o griglia.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Carousel",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Carousel di testimonianze",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo (opzionale)",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "display_mode": {
+          "type": "Select",
+          "config": {
+            "label": "Modalità",
+            "options": ["carousel", "grid"],
+            "default_value": "carousel"
+          }
+        },
+        "filter_category": {
+          "type": "Select",
+          "config": {
+            "label": "Categoria (auto-fetch, opzionale)",
+            "options": ["proprietario", "ospite", "host"]
+          }
+        },
+        "testimonials": {
+          "type": "Group",
+          "config": {
+            "label": "Testimonianze (manuali)",
+            "fields": {
+              "testimonial_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Testimonianza",
+                  "select": "document",
+                  "customtypes": ["testimonial"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

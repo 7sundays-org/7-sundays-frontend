@@ -1,0 +1,56 @@
+{
+  "format": "custom",
+  "id": "team_member",
+  "label": "Membro del Team",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Nome",
+          "placeholder": ""
+        }
+      },
+      "role": {
+        "type": "Text",
+        "config": {
+          "label": "Ruolo",
+          "placeholder": ""
+        }
+      },
+      "photo": {
+        "type": "Image",
+        "config": {
+          "label": "Foto",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "bio": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Bio",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "is_founder": {
+        "type": "Boolean",
+        "config": {
+          "label": "È founder?",
+          "default_value": false
+        }
+      }
+    }
+  }
+}

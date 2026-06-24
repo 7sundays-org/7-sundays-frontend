@@ -1,0 +1,65 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title_1": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Tutto, gestito."
+      },
+      "title_2": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": ""
+      },
+      "paragraph": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Gestione affitti brevi e soggiorni curati, a Milano.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "hero_image": {
+        "__TYPE__": "FieldContent",
+        "type": "Image",
+        "value": {
+          "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=2400&q=80", "width": 2400, "height": 1600 },
+          "url": "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=2400&q=80",
+          "width": 2400,
+          "height": 1600,
+          "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } },
+          "credits": null,
+          "alt": "Interno arredato"
+        }
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["button_text", { "__TYPE__": "FieldContent", "type": "Text", "value": "Hai una proprietà" }],
+              ["button_href", { "__TYPE__": "FieldContent", "type": "Link", "value": { "__TYPE__": "ExternalLink", "value": "https://7sundays.it/proprietario" } }],
+              ["variant", { "__TYPE__": "FieldContent", "type": "Select", "value": "primary" }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["button_text", { "__TYPE__": "FieldContent", "type": "Text", "value": "Gestisci immobili" }],
+              ["button_href", { "__TYPE__": "FieldContent", "type": "Link", "value": { "__TYPE__": "ExternalLink", "value": "https://7sundays.it/hosting" } }],
+              ["variant", { "__TYPE__": "FieldContent", "type": "Select", "value": "ghost" }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]
