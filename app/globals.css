@@ -3,24 +3,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * PP Fragment (Pangram Pangram) — commercial font, not on Google Fonts.
- * Drop the licensed files into /public/fonts/ with the names below and they
- * load automatically. Until then, headings fall back to the system serif.
+ * PP Fragment (Pangram Pangram) is loaded via next/font/local in app/layout.tsx
+ * and exposed as the CSS var --font-pp-fragment. See --font-serif below.
  */
-@font-face {
-  font-family: "PP Fragment";
-  src: url("/fonts/PPFragment-ExtraBold.woff2") format("woff2");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "PP Fragment";
-  src: url("/fonts/PPFragment-ExtraBoldItalic.woff2") format("woff2");
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
-}
 
 /* Brand palette — usable directly as bg-*, text-*, border-*, etc. */
 @theme {
@@ -42,7 +27,7 @@
   /* Font families */
   --font-sans:
     var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-serif: "PP Fragment", ui-serif, Georgia, serif;
+  --font-serif: var(--font-pp-fragment), ui-serif, Georgia, serif;
 }
 
 html {
