@@ -1,0 +1,61 @@
+{
+  "id": "benefits_grid",
+  "type": "SharedSlice",
+  "name": "BenefitsGrid",
+  "description": "Sezione 'Perché iscriversi' — titolo + immagine a sinistra, griglia 2x2 di card a destra.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Benefits grid",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Perché iscriversi",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testo",
+            "placeholder": "Lorem ipsum dolor sit amet consectetur.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+        },
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "Card",
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": { "label": "Titolo card", "placeholder": "Community esclusiva" }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Descrizione",
+                  "placeholder": "Lorem ipsum dolor sit amet consectetur.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

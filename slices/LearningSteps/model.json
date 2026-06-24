@@ -1,0 +1,48 @@
+{
+  "id": "learning_steps",
+  "type": "SharedSlice",
+  "name": "LearningSteps",
+  "description": "Sezione 'Cosa imparerai' — titolo + colonne numerate con etichetta verticale e numero decorativo.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Learning steps",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Cosa imparerai",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sottotitolo",
+            "placeholder": "Un percorso strutturato per gestire il tuo immobile come un professionista.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "steps": {
+          "type": "Group",
+          "config": {
+            "label": "Step",
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": { "label": "Etichetta (verticale)", "placeholder": "Oltre l'ospitalità" }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

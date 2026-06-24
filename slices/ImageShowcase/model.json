@@ -21,6 +21,13 @@
             "multi": "paragraph"
           }
         },
+        "full_bleed": {
+          "type": "Boolean",
+          "config": {
+            "label": "Full bleed (edge-to-edge, senza angoli arrotondati)",
+            "default_value": false
+          }
+        },
         "slides": {
           "type": "Group",
           "config": {

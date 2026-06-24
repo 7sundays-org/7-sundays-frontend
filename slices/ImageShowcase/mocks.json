@@ -8,6 +8,7 @@
         "type": "StructuredText",
         "value": [{ "type": "paragraph", "content": { "text": "I preferiti", "spans": [] } }]
       },
+      "full_bleed": { "__TYPE__": "FieldContent", "type": "Boolean", "value": false },
       "slides": {
         "__TYPE__": "GroupContentType",
         "value": [
@@ -35,6 +36,35 @@
               ] }],
               ["cta_label", { "__TYPE__": "FieldContent", "type": "Text", "value": "scopri di più" }],
               ["cta_link", { "__TYPE__": "FieldContent", "type": "Link", "value": { "__TYPE__": "ExternalLink", "url": "#", "target": "", "variant": null } }]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Lasciati ispirare", "spans": [] } }]
+      },
+      "full_bleed": { "__TYPE__": "FieldContent", "type": "Boolean", "value": true },
+      "slides": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1728&q=80", "width": 1728, "height": 858 }, "url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1728&q=80", "width": 1728, "height": 858, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1728&q=80", "width": 1728, "height": 858 }, "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1728&q=80", "width": 1728, "height": 858, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }]
             ]
           }
         ]

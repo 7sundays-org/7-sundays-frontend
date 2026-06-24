@@ -17,4 +17,6 @@ export const components = {
   image_highlights: dynamic(() => import("./ImageHighlights")),
   image_showcase: dynamic(() => import("./ImageShowcase")),
   services_showcase: dynamic(() => import("./ServicesShowcase")),
+  learning_steps: dynamic(() => import("./LearningSteps")),
+  benefits_grid: dynamic(() => import("./BenefitsGrid")),
 };

@@ -9,8 +9,8 @@ const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Proprietari", href: "/proprietario" },
-  { label: "Academy", href: "/academy" },
-  { label: "Host", href: "/hosting" },
+  { label: "Property Manager", href: "/property-manager" },
+  { label: "Soggiorni", href: "/hosting" },
 ];
 
 /**

@@ -1,0 +1,28 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Cosa imparerai", "spans": [] } }]
+      },
+      "subtitle": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Un percorso strutturato per gestire il tuo immobile come un professionista.", "spans": [] } }]
+      },
+      "steps": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          { "__TYPE__": "GroupItemContent", "value": [["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Oltre l'ospitalità" }]] },
+          { "__TYPE__": "GroupItemContent", "value": [["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Analisi e valutazione dell'immobile" }]] },
+          { "__TYPE__": "GroupItemContent", "value": [["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Preparazione dell'immobile" }]] },
+          { "__TYPE__": "GroupItemContent", "value": [["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Canali di vendita" }]] },
+          { "__TYPE__": "GroupItemContent", "value": [["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Revenue Management" }]] }
+        ]
+      }
+    }
+  }
+]

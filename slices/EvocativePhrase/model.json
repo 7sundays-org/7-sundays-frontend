@@ -34,7 +34,7 @@
           "type": "Select",
           "config": {
             "label": "Sfondo",
-            "options": ["light", "dark", "primary"],
+            "options": ["light", "dark", "primary", "orange"],
             "default_value": "light"
           }
         }

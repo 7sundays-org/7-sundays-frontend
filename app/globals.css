@@ -19,6 +19,7 @@
   --color-placeholder: #9e9e9e; /* Neutral — testo placeholder degli input */
   --color-peach: #f1c7ad; /* CTA — cerchio di hover che segue il cursore */
   --color-blue-ink: #4a546b; /* Testo card categoria — eyebrow, titolo, CTA */
+  --color-orange: #edb99b; /* Accent sezioni — fascia "Il metodo 7Sundays" (Academy) */
 
   /* Semantic aliases */
   --color-brand-primary: var(--color-blue-state);

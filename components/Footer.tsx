@@ -1,17 +1,25 @@
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "About", href: "/about" },
+  { label: "Chi siamo", href: "/about" },
   { label: "Proprietari", href: "/proprietario" },
-  { label: "Host", href: "/hosting" },
-  { label: "Consulenze", href: "/consulenze" },
+  { label: "Property manager", href: "/property-manager" },
+  { label: "Soggiorni", href: "/soggiorni" },
   { label: "Contatti", href: "/#contatti" },
 ];
 
 const SOCIALS = [
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Instagram", href: "https://instagram.com/7sundays" },
-  { label: "TikTok", href: "https://tiktok.com" },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/7sundays",
+    name: "Instagram 7Sundays",
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/",
+    name: "Instagram Elena (Personal Branding)",
+  },
+  { label: "TikTok", href: "https://tiktok.com", name: "TikTok" },
 ];
 
 export function Footer() {
@@ -37,8 +45,8 @@ export function Footer() {
           <address className="text-body text-foreground/80 not-italic">
             Via Andrea Maria Ampère, 56
             <br />
-            <a href="mailto:7sundays@7sundays.it" className="hover:underline">
-              E 7sundays@7sundays.it
+            <a href="mailto:info@7sundays.it" className="hover:underline">
+              E info@7sundays.it
             </a>
             <br />
             <a href="tel:+393930047956" className="hover:underline">
@@ -67,10 +75,11 @@ export function Footer() {
           <nav className="flex flex-col gap-3 text-body">
             {SOCIALS.map((item) => (
               <a
-                key={item.label}
+                key={item.name}
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={item.name}
                 className="text-foreground/80 transition-colors hover:text-foreground"
               >
                 {item.label}

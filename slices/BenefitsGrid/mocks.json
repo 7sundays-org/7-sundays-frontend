@@ -1,0 +1,52 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Perché iscriversi", "spans": [] } }]
+      },
+      "body": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Nisi et quisque eget enim. Blandit amet nibh consequat urna. Pellentesque integer -", "spans": [] } }]
+      },
+      "image": { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=940&q=80", "width": 940, "height": 1312 }, "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=940&q=80", "width": 940, "height": 1312, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } },
+      "cards": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["title", { "__TYPE__": "FieldContent", "type": "Text", "value": "Community esclusiva" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Et auctor nulla vestibulum ante id.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["title", { "__TYPE__": "FieldContent", "type": "Text", "value": "Template di contratti" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Et auctor nulla vestibulum ante id.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["title", { "__TYPE__": "FieldContent", "type": "Text", "value": "Gestisci Immobili" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Et auctor nulla vestibulum ante id.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["title", { "__TYPE__": "FieldContent", "type": "Text", "value": "Supporto gratuito" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Et auctor nulla vestibulum ante id.", "spans": [] } }] }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

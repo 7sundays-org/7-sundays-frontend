@@ -489,6 +489,61 @@ export type HostingPageDocument<Lang extends string = string> =
     Lang
   >;
 
+type PropertyManagerPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Property Manager documents
+ */
+interface PropertyManagerPageDocumentData {
+  /**
+   * Slice Zone field in *Property Manager*
+   *
+   * - **Field Type**: Slice Zone
+   * - **API ID Path**: property_manager_page.slices[]
+   * - **Tab**: Main
+   */
+  slices: prismic.SliceZone<PropertyManagerPageDocumentDataSlicesSlice>;
+
+  /**
+   * Meta Title field in *Property Manager*
+   *
+   * - **API ID Path**: property_manager_page.meta_title
+   * - **Tab**: SEO & Metadata
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Property Manager*
+   *
+   * - **API ID Path**: property_manager_page.meta_description
+   * - **Tab**: SEO & Metadata
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Property Manager*
+   *
+   * - **API ID Path**: property_manager_page.meta_image
+   * - **Tab**: SEO & Metadata
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Property Manager document from Prismic
+ *
+ * - **API ID**: `property_manager_page`
+ * - **Repeatable**: `false`
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PropertyManagerPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PropertyManagerPageDocumentData>,
+    "property_manager_page",
+    Lang
+  >;
+
 type ProprietarioPageDocumentDataSlicesSlice = never;
 
 /**
@@ -715,6 +770,7 @@ export type AllDocumentTypes =
   | HomePageDocument
   | HostingPageDocument
   | ProprietarioPageDocument
+  | PropertyManagerPageDocument
   | TeamMemberDocument
   | TestimonialDocument;
 
@@ -1099,7 +1155,10 @@ export interface EvocativePhraseSliceDefaultPrimary {
    * - **API ID Path**: evocative_phrase.default.primary.background_color
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  background_color: prismic.SelectField<"light" | "dark" | "primary", "filled">;
+  background_color: prismic.SelectField<
+    "light" | "dark" | "primary" | "orange",
+    "filled"
+  >;
 }
 
 /**

@@ -6,6 +6,7 @@ import { isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type ImageShowcaseSlide = {
   image: prismic.ImageField;
@@ -20,6 +21,7 @@ type ImageShowcaseSlice = prismic.SharedSlice<
     "default",
     {
       title: prismic.RichTextField;
+      full_bleed: prismic.BooleanField;
       slides: prismic.GroupField<ImageShowcaseSlide>;
     },
     never
@@ -29,7 +31,7 @@ type ImageShowcaseSlice = prismic.SharedSlice<
 export type ImageShowcaseProps = SliceComponentProps<ImageShowcaseSlice>;
 
 const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
-  const { title, slides } = slice.primary;
+  const { title, slides, full_bleed } = slice.primary;
   const items = (slides ?? []).filter((s) => s.image?.url);
   const count = items.length;
 
@@ -72,9 +74,19 @@ const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full px-6 py-8 md:px-[90px] md:py-[80px]"
+      className={cn(
+        "w-full",
+        // Full bleed: immagine edge-to-edge senza padding/rounding (es. "Lasciati ispirare").
+        // Default: inset + angoli arrotondati (es. "I preferiti").
+        full_bleed ? "" : "px-6 py-8 md:px-[90px] md:py-[80px]"
+      )}
     >
-      <div className="relative isolate overflow-hidden rounded-[16px]">
+      <div
+        className={cn(
+          "relative isolate",
+          full_bleed ? "" : "overflow-hidden rounded-[16px]"
+        )}
+      >
         <div
           ref={scrollerRef}
           className="flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"

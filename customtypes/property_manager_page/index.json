@@ -1,0 +1,53 @@
+{
+  "format": "page",
+  "id": "property_manager_page",
+  "label": "Property Manager",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "hero": { "type": "SharedSlice" },
+            "evocative_phrase": { "type": "SharedSlice" },
+            "learning_steps": { "type": "SharedSlice" },
+            "benefits_grid": { "type": "SharedSlice" },
+            "faq": { "type": "SharedSlice" },
+            "testimonials": { "type": "SharedSlice" },
+            "contatti": { "type": "SharedSlice" }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "Titolo della pagina per social e motori di ricerca"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "Breve descrizione della pagina"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

@@ -88,34 +88,39 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
       <div className="relative">
         <div
           ref={scrollerRef}
-          className="flex gap-[32px] overflow-x-auto px-6 pb-12 md:px-[89px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="overflow-x-auto px-6 pb-12 md:px-[89px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {items.map((service, i) => (
-            <article key={i} className="flex w-[364px] shrink-0 flex-col gap-5">
-              {service.image?.url && (
-                <div className="relative h-[545px] w-full overflow-hidden rounded-[8px] bg-neutral-200">
-                  <PrismicNextImage
-                    field={service.image}
-                    fill
-                    fallbackAlt=""
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <div className="flex flex-col gap-1">
-                {service.label && (
-                  <span className="font-sans text-[25px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase">
-                    {service.label}
-                  </span>
-                )}
-                {isFilled.richText(service.description) && (
-                  <div className="font-sans text-[25px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
-                    <PrismicRichText field={service.description} />
+          <div className="mx-auto flex w-max gap-[32px]">
+            {items.map((service, i) => (
+              <article
+                key={i}
+                className="flex w-[364px] shrink-0 flex-col gap-5"
+              >
+                {service.image?.url && (
+                  <div className="relative h-[545px] w-full shrink-0 overflow-hidden rounded-[8px]">
+                    <PrismicNextImage
+                      field={service.image}
+                      fill
+                      fallbackAlt=""
+                      className="object-cover"
+                    />
                   </div>
                 )}
-              </div>
-            </article>
-          ))}
+                <div className="flex flex-col gap-1">
+                  {service.label && (
+                    <span className="font-sans text-[25px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase">
+                      {service.label}
+                    </span>
+                  )}
+                  {isFilled.richText(service.description) && (
+                    <div className="font-sans text-[25px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
+                      <PrismicRichText field={service.description} />
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         {items.length > 1 && (

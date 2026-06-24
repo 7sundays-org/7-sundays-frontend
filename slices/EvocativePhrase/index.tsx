@@ -10,13 +10,19 @@ const bgClasses: Record<string, string> = {
   light: "bg-white text-foreground",
   dark: "bg-neutral-900 text-white",
   primary: "bg-primary text-white",
+  orange: "bg-orange text-[#433f4d]",
 };
 
 const EvocativePhrase: FC<EvocativePhraseProps> = ({ slice }) => {
   const variant = slice.primary.background_color ?? "light";
   const bg = bgClasses[variant] ?? bgClasses.light;
-  // H3 evocative phrase is Primary on the light variant, white on dark/primary.
-  const phraseColor = variant === "light" ? "text-primary" : "text-white";
+  // H3 evocative phrase: Primary su light, blu scuro su orange, bianco su dark/primary.
+  const phraseColor =
+    variant === "light"
+      ? "text-primary"
+      : variant === "orange"
+        ? "text-[#433f4d]"
+        : "text-white";
 
   return (
     <section
