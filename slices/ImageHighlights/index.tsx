@@ -74,7 +74,7 @@ const ImageHighlights: FC<ImageHighlightsProps> = ({ slice }) => {
               key={i}
               className="flex w-[85vw] max-w-[630px] shrink-0 flex-col gap-6"
             >
-              <div className="relative h-[300px] w-full overflow-hidden rounded-[8px] bg-neutral-200 shadow-[0_3px_13px_rgba(0,0,0,0.15)] md:h-[466px]">
+              <div className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-[8px] md:h-[466px]">
                 <PrismicNextImage
                   field={it.image}
                   fill
