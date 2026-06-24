@@ -72,7 +72,7 @@ const Gallery: FC<GalleryProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-sandy-clay pb-20 md:pb-[120px]"
+      className="w-full"
     >
       {isGrid ? (
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
@@ -98,56 +98,55 @@ const Gallery: FC<GalleryProps> = ({ slice }) => {
           )}
         </div>
       ) : (
-        <div>
-          {/* Full-bleed carousel; height adapts to the viewport */}
-          <div className="relative">
-            <div
-              ref={scrollerRef}
-              className="flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            >
-              {items.map((it, i) => (
-                <div
-                  key={i}
-                  className="relative h-[80dvh] min-h-[440px] w-full shrink-0 snap-start"
-                >
-                  <PrismicNextImage
-                    field={it.image}
-                    fill
-                    fallbackAlt=""
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {count > 1 && (
-              <>
-                <button
-                  type="button"
-                  aria-label="Immagine precedente"
-                  onClick={() => scrollToIndex(active - 1)}
-                  disabled={active === 0}
-                  className="absolute top-1/2 left-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:left-8"
-                >
-                  <ChevronLeft className="size-6" />
-                </button>
-                <button
-                  type="button"
-                  aria-label="Immagine successiva"
-                  onClick={() => scrollToIndex(active + 1)}
-                  disabled={active === count - 1}
-                  className="absolute top-1/2 right-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:right-8"
-                >
-                  <ChevronRight className="size-6" />
-                </button>
-              </>
-            )}
+        <div className="relative">
+          {/* Full-bleed carousel; section is exactly as tall as the image */}
+          <div
+            ref={scrollerRef}
+            className="flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {items.map((it, i) => (
+              <div
+                key={i}
+                className="relative h-[80dvh] min-h-[440px] w-full shrink-0 snap-start"
+              >
+                <PrismicNextImage
+                  field={it.image}
+                  fill
+                  fallbackAlt=""
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
 
+          {/* Caption overlaid on the image, bottom-right */}
           {title && (
-            <div className="px-6 pt-2.5 text-right font-sans text-[2rem] leading-tight font-bold text-primary italic md:px-12 md:text-[45px] md:leading-[58px]">
+            <div className="pointer-events-none absolute right-6 bottom-8 z-10 max-w-[748px] text-right font-sans text-[2rem] leading-tight font-bold text-primary italic md:right-12 md:bottom-12 md:text-[45px] md:leading-[58px]">
               <PrismicRichText field={title} />
             </div>
+          )}
+
+          {count > 1 && (
+            <>
+              <button
+                type="button"
+                aria-label="Immagine precedente"
+                onClick={() => scrollToIndex(active - 1)}
+                disabled={active === 0}
+                className="absolute top-1/2 left-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:left-8"
+              >
+                <ChevronLeft className="size-6" />
+              </button>
+              <button
+                type="button"
+                aria-label="Immagine successiva"
+                onClick={() => scrollToIndex(active + 1)}
+                disabled={active === count - 1}
+                className="absolute top-1/2 right-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:right-8"
+              >
+                <ChevronRight className="size-6" />
+              </button>
+            </>
           )}
         </div>
       )}

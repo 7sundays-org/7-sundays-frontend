@@ -5,7 +5,8 @@
       "Bash(npm run *)",
       "Bash(cd *)",
       "Bash(npx tsc *)",
-      "Bash(grep -rniE '#[0-9a-f]{3,8}' slices app components --include='*.tsx' --include='*.ts')"
+      "Bash(grep -rniE '#[0-9a-f]{3,8}' slices app components --include='*.tsx' --include='*.ts')",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d['json']['Main']['slices']['config']['choices'], indent=1\\)\\)\")"
     ]
   }
 }

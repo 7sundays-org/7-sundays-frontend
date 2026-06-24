@@ -1,0 +1,56 @@
+{
+  "id": "process_steps",
+  "type": "SharedSlice",
+  "name": "ProcessSteps",
+  "description": "Sezione 'Pensiamo noi a tutto' — header su sfondo rosa + carousel di card step.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Process steps",
+      "imageUrl": "",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": { "label": "Eyebrow", "placeholder": "Hai un immobile?" }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Pensiamo noi a tutto.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "steps": {
+          "type": "Group",
+          "config": {
+            "label": "Step",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              },
+              "label": {
+                "type": "Text",
+                "config": { "label": "Titolo card", "placeholder": "Valutiamo l'immobile" }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Descrizione",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

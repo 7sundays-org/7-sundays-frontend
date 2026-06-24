@@ -1,0 +1,51 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "eyebrow": { "__TYPE__": "FieldContent", "type": "Text", "value": "Hai un immobile?" },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Pensiamo noi a tutto.", "spans": [] } }]
+      },
+      "steps": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Valutazione" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Valutiamo l'immobile" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Gestione" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lo prendiamo in gestione" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Ospiti" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Gestiamo gli ospiti" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Manutenzione" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Curiamo la manutenzione" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

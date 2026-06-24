@@ -1,0 +1,65 @@
+{
+  "id": "faq",
+  "type": "SharedSlice",
+  "name": "Faq",
+  "description": "Domande frequenti: accordion a sinistra + box CTA rosa a destra.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "FAQ",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Domande frequenti",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "items": {
+          "type": "Group",
+          "config": {
+            "label": "Domande",
+            "fields": {
+              "question": {
+                "type": "Text",
+                "config": { "label": "Domanda", "placeholder": "" }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Risposta",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink"
+                }
+              }
+            }
+          }
+        },
+        "cta_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo box CTA",
+            "placeholder": "Non hai trovato la risposta che cerchi?",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "cta_label": {
+          "type": "Text",
+          "config": { "label": "Testo CTA", "placeholder": "Contattaci" }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": { "label": "Link CTA", "select": null, "allowTargetBlank": true }
+        }
+      }
+    }
+  ]
+}

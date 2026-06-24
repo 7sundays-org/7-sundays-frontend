@@ -1,0 +1,64 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Domande frequenti", "spans": [] } }]
+      },
+      "items": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["question", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem ipsum dolor sit amet consectetur?" }],
+              ["answer", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Et auctor nulla vestibulum ante id.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["question", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem ipsum dolor sit amet consectetur?" }],
+              ["answer", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Malesuada suspendisse feugiat dictumst nunc non donec.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["question", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem ipsum dolor sit amet consectetur?" }],
+              ["answer", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "A fringilla etiam vel egestas suspendisse.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["question", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem ipsum dolor sit amet consectetur?" }],
+              ["answer", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Risus egestas et auctor nulla vestibulum.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["question", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem ipsum dolor sit amet consectetur?" }],
+              ["answer", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Platea arcu urna et cursus purus ligula.", "spans": [] } }] }]
+            ]
+          }
+        ]
+      },
+      "cta_title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Non hai trovato la risposta che cerchi?", "spans": [] } }]
+      },
+      "cta_label": { "__TYPE__": "FieldContent", "type": "Text", "value": "Contattaci" },
+      "cta_link": {
+        "__TYPE__": "FieldContent",
+        "type": "Link",
+        "value": { "__TYPE__": "ExternalLink", "value": "/#contatti" }
+      }
+    }
+  }
+]

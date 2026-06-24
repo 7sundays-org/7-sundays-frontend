@@ -1,0 +1,94 @@
+import { FC } from "react";
+import type * as prismic from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { PrismicNextLink } from "@prismicio/next";
+import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+type FaqItem = {
+  question: prismic.KeyTextField;
+  answer: prismic.RichTextField;
+};
+
+type FaqSlice = prismic.SharedSlice<
+  "faq",
+  prismic.SharedSliceVariation<
+    "default",
+    {
+      title: prismic.RichTextField;
+      items: prismic.GroupField<FaqItem>;
+      cta_title: prismic.RichTextField;
+      cta_label: prismic.KeyTextField;
+      cta_link: prismic.LinkField;
+    },
+    never
+  >
+>;
+
+export type FaqProps = SliceComponentProps<FaqSlice>;
+
+const Faq: FC<FaqProps> = ({ slice }) => {
+  const { title, items, cta_title, cta_label, cta_link } = slice.primary;
+  const faqs = (items ?? []).filter((i) => i.question);
+
+  return (
+    <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="w-full bg-white px-6 py-20 md:px-[90px] md:py-[120px]"
+    >
+      <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
+        {/* FAQ column */}
+        <div className="flex flex-1 flex-col gap-10">
+          {title && (
+            <h2 className="font-serif text-[2.75rem] leading-tight font-extrabold text-primary md:text-[70px]">
+              <PrismicRichText
+                field={title}
+                components={{ paragraph: ({ children }) => <>{children}</> }}
+              />
+            </h2>
+          )}
+
+          <div className="flex flex-col">
+            {faqs.map((item, i) => (
+              <details key={i} className="group border-b border-black/15">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-body text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
+                  {item.question}
+                  <ChevronDown className="size-5 shrink-0 text-foreground/60 transition-transform duration-300 group-open:rotate-180" />
+                </summary>
+                {isFilled.richText(item.answer) && (
+                  <div className="pb-5 text-body text-foreground/70">
+                    <PrismicRichText field={item.answer} />
+                  </div>
+                )}
+              </details>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA box */}
+        {(isFilled.richText(cta_title) || isFilled.link(cta_link)) && (
+          <div className="lg:w-[38%] lg:shrink-0 lg:pt-[205px]">
+            <div className="flex flex-col items-center justify-center gap-8 rounded-[32px] bg-dusty-rose px-10 py-16 text-center md:px-[92px] md:py-[114px]">
+              {isFilled.richText(cta_title) && (
+                <div className="font-sans text-[25px] leading-[30px] font-bold text-primary">
+                  <PrismicRichText field={cta_title} />
+                </div>
+              )}
+              {isFilled.link(cta_link) && (
+                <Button asChild variant="primary">
+                  <PrismicNextLink field={cta_link}>
+                    {cta_label || "Contattaci"}
+                  </PrismicNextLink>
+                </Button>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Faq;

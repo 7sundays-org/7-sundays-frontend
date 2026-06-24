@@ -12,4 +12,6 @@ export const components = {
   gallery: dynamic(() => import("./Gallery")),
   founder_spotlight: dynamic(() => import("./FounderSpotlight")),
   team_photo: dynamic(() => import("./TeamPhoto")),
+  process_steps: dynamic(() => import("./ProcessSteps")),
+  faq: dynamic(() => import("./Faq")),
 };

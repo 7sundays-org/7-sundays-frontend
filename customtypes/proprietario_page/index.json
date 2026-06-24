@@ -10,7 +10,14 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "hero": { "type": "SharedSlice" },
+            "evocative_phrase": { "type": "SharedSlice" },
+            "process_steps": { "type": "SharedSlice" },
+            "faq": { "type": "SharedSlice" },
+            "testimonials": { "type": "SharedSlice" },
+            "contatti": { "type": "SharedSlice" }
+          }
         }
       }
     },
