@@ -3,7 +3,6 @@ import type * as prismic from "@prismicio/client";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type HeroButton = {
@@ -21,7 +20,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden text-white"
+      className="relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden text-white bg-white"
     >
       {hero_image?.url && (
         <PrismicNextImage
@@ -33,21 +32,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         />
       )}
       {/* Maschera per leggibilità del testo sopra la foto */}
-      <div className="absolute inset-0 -z-10 bg-black/30" />
-
-      {/* Navbar in overlay sull'immagine */}
-      <nav className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-6 md:px-12">
-        <span className="font-serif text-2xl font-extrabold tracking-tight text-white">
-          7Sundays
-        </span>
-        <button
-          type="button"
-          aria-label="Apri menu"
-          className="text-white transition-opacity hover:opacity-80"
-        >
-          <Menu className="size-7" />
-        </button>
-      </nav>
+      <div className="absolute inset-0 -z-10" />
 
       <div className="mx-auto flex max-w-[1028px] flex-col items-center gap-13 px-6 text-center">
         <h1 className="text-h4 uppercase md:text-h1">
