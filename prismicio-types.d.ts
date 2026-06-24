@@ -499,7 +499,7 @@ interface PropertyManagerPageDocumentData {
    * Slice Zone field in *Property Manager*
    *
    * - **Field Type**: Slice Zone
-   * - **API ID Path**: property_manager_page.slices[]
+   * - **API ID Path**: academy_page.slices[]
    * - **Tab**: Main
    */
   slices: prismic.SliceZone<PropertyManagerPageDocumentDataSlicesSlice>;
@@ -507,7 +507,7 @@ interface PropertyManagerPageDocumentData {
   /**
    * Meta Title field in *Property Manager*
    *
-   * - **API ID Path**: property_manager_page.meta_title
+   * - **API ID Path**: academy_page.meta_title
    * - **Tab**: SEO & Metadata
    */
   meta_title: prismic.KeyTextField;
@@ -515,7 +515,7 @@ interface PropertyManagerPageDocumentData {
   /**
    * Meta Description field in *Property Manager*
    *
-   * - **API ID Path**: property_manager_page.meta_description
+   * - **API ID Path**: academy_page.meta_description
    * - **Tab**: SEO & Metadata
    */
   meta_description: prismic.KeyTextField;
@@ -523,16 +523,17 @@ interface PropertyManagerPageDocumentData {
   /**
    * Meta Image field in *Property Manager*
    *
-   * - **API ID Path**: property_manager_page.meta_image
+   * - **API ID Path**: academy_page.meta_image
    * - **Tab**: SEO & Metadata
    */
   meta_image: prismic.ImageField<never>;
 }
 
 /**
- * Property Manager document from Prismic
+ * Property Manager document from Prismic — the underlying Prismic type id stays
+ * `academy_page` so existing content keeps rendering on the /property-manager URL.
  *
- * - **API ID**: `property_manager_page`
+ * - **API ID**: `academy_page`
  * - **Repeatable**: `false`
  *
  * @typeParam Lang - Language API ID of the document.
@@ -540,7 +541,7 @@ interface PropertyManagerPageDocumentData {
 export type PropertyManagerPageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<PropertyManagerPageDocumentData>,
-    "property_manager_page",
+    "academy_page",
     Lang
   >;
 
