@@ -83,12 +83,12 @@ const Faq: FC<FaqProps> = ({ slice }) => {
             </div>
           </div>
         ) : (
-          /* CTA box */
+          /* CTA box — bottom-aligned alla fine dell'accordion, più alto */
           (isFilled.richText(cta_title) || isFilled.link(cta_link)) && (
-            <div className="lg:w-[38%] lg:shrink-0 lg:pt-[205px]">
-              <div className="flex flex-col items-center justify-center gap-8 rounded-[32px] bg-dusty-rose px-10 py-16 text-center md:px-[92px] md:py-[114px]">
+            <div className="flex flex-col lg:w-[38%] lg:shrink-0 lg:pt-[88px]">
+              <div className="flex flex-col items-center justify-center gap-8 rounded-[32px] bg-dusty-rose px-10 py-16 text-center md:px-[92px] md:py-[140px]">
                 {isFilled.richText(cta_title) && (
-                  <div className="font-sans text-[25px] leading-[30px] font-bold text-primary">
+                  <div className="font-sans text-[35px] leading-[42px] font-semibold text-primary">
                     <PrismicRichText field={cta_title} />
                   </div>
                 )}
