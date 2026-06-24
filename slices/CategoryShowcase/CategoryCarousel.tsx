@@ -4,8 +4,8 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CarouselArrow } from "@/components/ui/carousel-arrow";
 
 type Cards = Content.CategoryShowcaseSliceDefaultPrimary["cards"];
 
@@ -110,24 +110,20 @@ export const CategoryCarousel: FC<{ cards: Cards }> = ({ cards }) => {
 
       {count > 1 && (
         <>
-          <button
-            type="button"
+          <CarouselArrow
+            direction="left"
             aria-label="Card precedente"
             onClick={() => scrollToIndex(active - 1)}
             disabled={active === 0}
-            className="absolute top-1/2 left-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur transition hover:bg-black/50 disabled:pointer-events-none disabled:opacity-0 md:left-6"
-          >
-            <ChevronLeft className="size-6" />
-          </button>
-          <button
-            type="button"
+            className="absolute top-1/2 left-4 z-10 -translate-y-1/2 md:left-6"
+          />
+          <CarouselArrow
+            direction="right"
             aria-label="Card successiva"
             onClick={() => scrollToIndex(active + 1)}
             disabled={active === count - 1}
-            className="absolute top-1/2 right-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur transition hover:bg-black/50 disabled:pointer-events-none disabled:opacity-0 md:right-6"
-          >
-            <ChevronRight className="size-6" />
-          </button>
+            className="absolute top-1/2 right-4 z-10 -translate-y-1/2 md:right-6"
+          />
         </>
       )}
     </div>

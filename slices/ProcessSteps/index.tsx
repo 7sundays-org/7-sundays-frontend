@@ -4,7 +4,7 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import type * as prismic from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CarouselArrow } from "@/components/ui/carousel-arrow";
 
 type ProcessStepItem = {
   image: prismic.ImageField;
@@ -129,24 +129,20 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
 
           {items.length > 1 && (
             <>
-              <button
-                type="button"
+              <CarouselArrow
+                direction="left"
                 aria-label="Card precedente"
                 onClick={() => scrollBy(-1)}
                 disabled={atStart}
-                className="absolute top-[270px] left-2 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:left-6"
-              >
-                <ChevronLeft className="size-6" />
-              </button>
-              <button
-                type="button"
+                className="absolute top-[270px] left-2 z-10 -translate-y-1/2 md:left-6"
+              />
+              <CarouselArrow
+                direction="right"
                 aria-label="Card successiva"
                 onClick={() => scrollBy(1)}
                 disabled={atEnd}
-                className="absolute top-[270px] right-2 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:right-6"
-              >
-                <ChevronRight className="size-6" />
-              </button>
+                className="absolute top-[270px] right-2 z-10 -translate-y-1/2 md:right-6"
+              />
             </>
           )}
         </div>

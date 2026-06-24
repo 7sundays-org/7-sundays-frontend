@@ -4,7 +4,7 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import type * as prismic from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CarouselArrow } from "@/components/ui/carousel-arrow";
 
 type GalleryImageItem = {
   image: prismic.ImageField;
@@ -128,24 +128,20 @@ const Gallery: FC<GalleryProps> = ({ slice }) => {
 
           {count > 1 && (
             <>
-              <button
-                type="button"
+              <CarouselArrow
+                direction="left"
                 aria-label="Immagine precedente"
                 onClick={() => scrollToIndex(active - 1)}
                 disabled={active === 0}
-                className="absolute top-1/2 left-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:left-8"
-              >
-                <ChevronLeft className="size-6" />
-              </button>
-              <button
-                type="button"
+                className="absolute top-1/2 left-4 z-10 -translate-y-1/2 md:left-8"
+              />
+              <CarouselArrow
+                direction="right"
                 aria-label="Immagine successiva"
                 onClick={() => scrollToIndex(active + 1)}
                 disabled={active === count - 1}
-                className="absolute top-1/2 right-4 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-foreground shadow-sm transition hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:right-8"
-              >
-                <ChevronRight className="size-6" />
-              </button>
+                className="absolute top-1/2 right-4 z-10 -translate-y-1/2 md:right-8"
+              />
             </>
           )}
         </div>

@@ -5,7 +5,7 @@ import type * as prismic from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CarouselArrow } from "@/components/ui/carousel-arrow";
 
 type ImageHighlightItem = {
   image: prismic.ImageField;
@@ -100,24 +100,20 @@ const ImageHighlights: FC<ImageHighlightsProps> = ({ slice }) => {
 
         {items.length > 1 && (
           <>
-            <button
-              type="button"
+            <CarouselArrow
+              direction="left"
               aria-label="Card precedente"
               onClick={() => scrollBy(-1)}
               disabled={atStart}
-              className="absolute top-[150px] left-3 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-primary bg-porcelain/40 text-primary backdrop-blur transition hover:bg-porcelain/60 disabled:pointer-events-none disabled:opacity-0 md:left-12 md:size-[92px] md:top-[233px]"
-            >
-              <ChevronLeft className="size-6 md:size-10" />
-            </button>
-            <button
-              type="button"
+              className="absolute top-[150px] left-3 z-10 -translate-y-1/2 md:top-[233px] md:left-12"
+            />
+            <CarouselArrow
+              direction="right"
               aria-label="Card successiva"
               onClick={() => scrollBy(1)}
               disabled={atEnd}
-              className="absolute top-[150px] right-3 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-primary bg-porcelain/40 text-primary backdrop-blur transition hover:bg-porcelain/60 disabled:pointer-events-none disabled:opacity-0 md:right-12 md:size-[92px] md:top-[233px]"
-            >
-              <ChevronRight className="size-6 md:size-10" />
-            </button>
+              className="absolute top-[150px] right-3 z-10 -translate-y-1/2 md:top-[233px] md:right-12"
+            />
           </>
         )}
       </div>

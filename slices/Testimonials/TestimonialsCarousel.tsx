@@ -3,7 +3,8 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
+import { CarouselArrow } from "@/components/ui/carousel-arrow";
 
 export type TestimonialData = Content.TestimonialDocument["data"];
 
@@ -84,24 +85,20 @@ export const TestimonialsCarousel: FC<{ items: TestimonialData[] }> = ({
 
       {count > 1 && (
         <>
-          <button
-            type="button"
+          <CarouselArrow
+            direction="left"
             aria-label="Testimonianza precedente"
             onClick={() => scrollToIndex(active - 1)}
             disabled={active === 0}
-            className="absolute top-1/2 -left-6 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 disabled:pointer-events-none disabled:opacity-0 lg:-left-16"
-          >
-            <ChevronLeft className="size-6" />
-          </button>
-          <button
-            type="button"
+            className="absolute top-1/2 -left-6 z-10 -translate-y-1/2 lg:-left-16"
+          />
+          <CarouselArrow
+            direction="right"
             aria-label="Testimonianza successiva"
             onClick={() => scrollToIndex(active + 1)}
             disabled={active === count - 1}
-            className="absolute top-1/2 -right-6 z-10 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 disabled:pointer-events-none disabled:opacity-0 lg:-right-24"
-          >
-            <ChevronRight className="size-6" />
-          </button>
+            className="absolute top-1/2 -right-6 z-10 -translate-y-1/2 lg:-right-24"
+          />
         </>
       )}
     </div>

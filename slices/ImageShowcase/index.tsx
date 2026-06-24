@@ -5,8 +5,9 @@ import type * as prismic from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CarouselArrow } from "@/components/ui/carousel-arrow";
 
 type ImageShowcaseSlide = {
   image: prismic.ImageField;
@@ -143,24 +144,20 @@ const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
 
         {count > 1 && (
           <>
-            <button
-              type="button"
+            <CarouselArrow
+              direction="left"
               aria-label="Immagine precedente"
               onClick={() => scrollToIndex(active - 1)}
               disabled={active === 0}
-              className="absolute top-1/2 left-4 z-20 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-primary bg-porcelain/40 text-primary backdrop-blur transition hover:bg-porcelain/60 disabled:pointer-events-none disabled:opacity-0 md:left-8 md:size-[92px]"
-            >
-              <ChevronLeft className="size-6 md:size-10" />
-            </button>
-            <button
-              type="button"
+              className="absolute top-1/2 left-4 z-20 -translate-y-1/2 md:left-8"
+            />
+            <CarouselArrow
+              direction="right"
               aria-label="Immagine successiva"
               onClick={() => scrollToIndex(active + 1)}
               disabled={active === count - 1}
-              className="absolute top-1/2 right-4 z-20 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-primary bg-porcelain/40 text-primary backdrop-blur transition hover:bg-porcelain/60 disabled:pointer-events-none disabled:opacity-0 md:right-8 md:size-[92px]"
-            >
-              <ChevronRight className="size-6 md:size-10" />
-            </button>
+              className="absolute top-1/2 right-4 z-20 -translate-y-1/2 md:right-8"
+            />
           </>
         )}
       </div>
