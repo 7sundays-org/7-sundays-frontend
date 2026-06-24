@@ -1,0 +1,40 @@
+{
+  "id": "team_photo",
+  "type": "SharedSlice",
+  "name": "TeamPhoto",
+  "description": "Foto del team a tutta larghezza, con titolo e paragrafo opzionali.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Foto team",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragrafo",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "group_photo": {
+          "type": "Image",
+          "config": { "label": "Foto del team", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}

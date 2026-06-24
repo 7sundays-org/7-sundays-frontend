@@ -30,7 +30,7 @@ export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
   return (
     <form
       onSubmit={onSubmit}
-      className="mx-auto flex w-full max-w-2xl flex-col gap-4"
+      className="mx-auto flex w-full max-w-2xl flex-col gap-[42px]"
     >
       <div className="grid gap-4 md:grid-cols-2">
         <input

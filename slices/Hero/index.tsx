@@ -20,7 +20,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden text-white bg-white"
+      className="relative isolate flex min-h-dvh w-full items-center justify-center overflow-hidden text-white bg-white"
     >
       {hero_image?.url && (
         <PrismicNextImage

@@ -9,4 +9,7 @@ export const components = {
   about_teaser: dynamic(() => import("./AboutTeaser")),
   testimonials: dynamic(() => import("./Testimonials")),
   contatti: dynamic(() => import("./Contatti")),
+  gallery: dynamic(() => import("./Gallery")),
+  founder_spotlight: dynamic(() => import("./FounderSpotlight")),
+  team_photo: dynamic(() => import("./TeamPhoto")),
 };

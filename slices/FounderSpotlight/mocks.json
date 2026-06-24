@@ -1,0 +1,43 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "image": {
+        "__TYPE__": "FieldContent",
+        "type": "Image",
+        "value": {
+          "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80", "width": 1200, "height": 1500 },
+          "url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80",
+          "width": 1200,
+          "height": 1500,
+          "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } },
+          "credits": null,
+          "alt": "Elena Pirò"
+        }
+      },
+      "name": { "__TYPE__": "FieldContent", "type": "Text", "value": "Elena Pirò" },
+      "role": { "__TYPE__": "FieldContent", "type": "Text", "value": "Founder" },
+      "story": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Lorem ipsum dolor sit amet consectetur. Ultrices praesent nisi tristique est eu. Platea arcu urna et cursus purus ligula sed sagittis dignissim. Auctor tellus non neque consectetur justo at tortor.",
+              "spans": []
+            }
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Sapien quis et sit sit in dui. Faucibus duis eget eu fames massa bibendum commodo tristique mauris.",
+              "spans": []
+            }
+          }
+        ]
+      }
+    }
+  }
+]

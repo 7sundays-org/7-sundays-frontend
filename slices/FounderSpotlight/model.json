@@ -1,0 +1,39 @@
+{
+  "id": "founder_spotlight",
+  "type": "SharedSlice",
+  "name": "FounderSpotlight",
+  "description": "Sezione dedicata alla founder: foto + nome, ruolo e storia.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Founder spotlight",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "Foto", "constraint": {}, "thumbnails": [] }
+        },
+        "name": {
+          "type": "Text",
+          "config": { "label": "Nome", "placeholder": "Elena Pirò" }
+        },
+        "role": {
+          "type": "Text",
+          "config": { "label": "Ruolo", "placeholder": "Founder" }
+        },
+        "story": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Storia",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      }
+    }
+  ]
+}

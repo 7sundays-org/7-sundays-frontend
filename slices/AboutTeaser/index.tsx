@@ -7,16 +7,15 @@ import { Button } from "@/components/ui/button";
 export type AboutTeaserProps = SliceComponentProps<Content.AboutTeaserSlice>;
 
 const AboutTeaser: FC<AboutTeaserProps> = ({ slice }) => {
-  const { eyebrow, title, paragraph, image, cta_text, cta_link } =
-    slice.primary;
+  const { eyebrow, title, image, cta_text, cta_link } = slice.primary;
 
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-white px-6 py-16 md:px-[90px] md:pt-[120px] md:pb-10"
+      className="w-full bg-white px-6 pt-4 pb-20 md:px-[90px] md:pt-[16px] md:pb-[120px]"
     >
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-10">
         {image?.url && (
           <div className="relative aspect-[16/7] w-full overflow-hidden rounded-[16px] bg-neutral-200">
             <PrismicNextImage
@@ -28,37 +27,37 @@ const AboutTeaser: FC<AboutTeaserProps> = ({ slice }) => {
           </div>
         )}
 
-        <div className="flex flex-col gap-2.5">
-          {eyebrow && (
-            <span className="text-button text-brand-primary uppercase">
-              {eyebrow}
-            </span>
-          )}
-
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-10">
-            {title && (
-              <div className="font-sans text-[2rem] leading-tight font-bold text-foreground md:text-[45px] md:leading-[58px]">
-                <PrismicRichText field={title} />
-              </div>
+        {/* Riga testo: blocco "CHI SIAMO + titolo" a sinistra, CTA a destra,
+            allineati in alto (flex-start) */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
+          <div className="flex flex-col">
+            {eyebrow && (
+              <span className="font-sans text-[30px] leading-[58px] font-semibold tracking-[0.05em] text-blue-ink italic">
+                {eyebrow}
+              </span>
             )}
-
-            {cta_link && (
-              <Button
-                asChild
-                variant="primary"
-                className="self-start md:self-auto"
-              >
-                <PrismicNextLink field={cta_link}>
-                  {cta_text || "Conosciamoci"}
-                </PrismicNextLink>
-              </Button>
+            {title && (
+              <h2 className="font-sans text-[55px] leading-[58px] font-extrabold text-blue-ink">
+                <PrismicRichText
+                  field={title}
+                  components={{
+                    paragraph: ({ children }) => <>{children}</>,
+                  }}
+                />
+              </h2>
             )}
           </div>
 
-          {paragraph && (
-            <div className="text-body text-foreground/70">
-              <PrismicRichText field={paragraph} />
-            </div>
+          {cta_link && (
+            <Button
+              asChild
+              variant="primary"
+              className="h-[58px] w-fit shrink-0 leading-[58px] tracking-[0.03em] text-blue-ink"
+            >
+              <PrismicNextLink field={cta_link}>
+                {cta_text || "Conosciamoci"}
+              </PrismicNextLink>
+            </Button>
           )}
         </div>
       </div>

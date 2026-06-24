@@ -20,12 +20,12 @@ const Contatti: FC<ContattiProps> = ({ slice }) => {
       <div className="mx-auto flex max-w-4xl flex-col gap-[66px]">
         <div className="flex flex-col items-center gap-4 text-center">
           {title && (
-            <div className="font-sans text-[25px] leading-[30px] text-foreground">
+            <div className="font-sans text-[25px] leading-[30px] font-medium text-foreground">
               <PrismicRichText field={title} />
             </div>
           )}
           {subtitle && (
-            <div className="max-w-2xl text-body text-foreground">
+            <div className="max-w-2xl font-sans text-[25px] leading-[30px] font-medium text-foreground">
               <PrismicRichText field={subtitle} />
             </div>
           )}

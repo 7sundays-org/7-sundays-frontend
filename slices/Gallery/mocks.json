@@ -1,0 +1,52 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "We take care of every little detail.",
+              "spans": []
+            }
+          }
+        ]
+      },
+      "layout": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "carousel"
+      },
+      "images": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=80", "width": 1600, "height": 1000 }, "url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=80", "width": 1600, "height": 1000, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Soggiorno curato" } }],
+              ["caption", { "__TYPE__": "FieldContent", "type": "Text", "value": "Living" }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80", "width": 1600, "height": 1000 }, "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80", "width": 1600, "height": 1000, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Camera luminosa" } }],
+              ["caption", { "__TYPE__": "FieldContent", "type": "Text", "value": "Bedroom" }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80", "width": 1600, "height": 1000 }, "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80", "width": 1600, "height": 1000, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "Cucina di design" } }],
+              ["caption", { "__TYPE__": "FieldContent", "type": "Text", "value": "Kitchen" }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

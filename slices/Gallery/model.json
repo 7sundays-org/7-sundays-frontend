@@ -1,0 +1,51 @@
+{
+  "id": "gallery",
+  "type": "SharedSlice",
+  "name": "Gallery",
+  "description": "Galleria immagini con layout grid, masonry o carousel.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Galleria",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo / didascalia",
+            "placeholder": "We take care of every little detail.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "layout": {
+          "type": "Select",
+          "config": {
+            "label": "Layout",
+            "options": ["grid", "masonry", "carousel"],
+            "default_value": "carousel"
+          }
+        },
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Immagini",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              },
+              "caption": {
+                "type": "Text",
+                "config": { "label": "Didascalia", "placeholder": "" }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

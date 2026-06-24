@@ -13,20 +13,27 @@ const bgClasses: Record<string, string> = {
 };
 
 const EvocativePhrase: FC<EvocativePhraseProps> = ({ slice }) => {
-  const bg =
-    bgClasses[slice.primary.background_color ?? "light"] ?? bgClasses.light;
+  const variant = slice.primary.background_color ?? "light";
+  const bg = bgClasses[variant] ?? bgClasses.light;
+  // H3 evocative phrase is Primary on the light variant, white on dark/primary.
+  const phraseColor = variant === "light" ? "text-primary" : "text-white";
 
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
-        "w-full px-6 py-20 md:py-28 lg:py-[140px] lg:pr-[88px] lg:pl-[224px]",
+        "w-full px-6 py-20 md:py-28 lg:py-[140px] lg:pr-[88px] lg:pl-[223px]",
         bg
       )}
     >
       <div className="flex flex-col gap-10">
-        <div className="font-sans text-[2rem] leading-tight font-bold md:text-[45px] md:leading-[58px]">
+        <div
+          className={cn(
+            "font-sans text-[2rem] leading-tight font-bold italic md:text-[45px] md:leading-[58px]",
+            phraseColor
+          )}
+        >
           <PrismicRichText field={slice.primary.phrase} />
         </div>
         {slice.primary.subtitle && (

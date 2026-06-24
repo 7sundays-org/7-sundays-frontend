@@ -25,7 +25,7 @@ export default async function HomePage() {
 
   if (!page) {
     return (
-      <main className="flex min-h-[100vh] flex-col items-center justify-center gap-4 p-8 bg-white">
+      <main className="flex min-h-dvh flex-col items-center justify-center gap-4 p-8 bg-white">
         <h1 className="text-4xl font-semibold">7 Sundays</h1>
         <p className="text-muted-foreground">
           Every detail. Every stay. Every Sunday.
