@@ -1,0 +1,37 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "items": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1300&q=80", "width": 1300, "height": 960 }, "url": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1300&q=80", "width": 1300, "height": 960, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }],
+              ["title", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem Ipsum" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1300&q=80", "width": 1300, "height": 960 }, "url": "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1300&q=80", "width": 1300, "height": 960, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }],
+              ["title", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem Ipsum" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1300&q=80", "width": 1300, "height": 960 }, "url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1300&q=80", "width": 1300, "height": 960, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }],
+              ["title", { "__TYPE__": "FieldContent", "type": "Text", "value": "Lorem Ipsum" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

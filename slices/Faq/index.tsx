@@ -2,7 +2,7 @@ import { FC } from "react";
 import type * as prismic from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -21,6 +21,7 @@ type FaqSlice = prismic.SharedSlice<
       cta_title: prismic.RichTextField;
       cta_label: prismic.KeyTextField;
       cta_link: prismic.LinkField;
+      side_image: prismic.ImageField;
     },
     never
   >
@@ -29,8 +30,10 @@ type FaqSlice = prismic.SharedSlice<
 export type FaqProps = SliceComponentProps<FaqSlice>;
 
 const Faq: FC<FaqProps> = ({ slice }) => {
-  const { title, items, cta_title, cta_label, cta_link } = slice.primary;
+  const { title, items, cta_title, cta_label, cta_link, side_image } =
+    slice.primary;
   const faqs = (items ?? []).filter((i) => i.question);
+  const hasSideImage = isFilled.image(side_image);
 
   return (
     <section
@@ -67,24 +70,38 @@ const Faq: FC<FaqProps> = ({ slice }) => {
           </div>
         </div>
 
-        {/* CTA box */}
-        {(isFilled.richText(cta_title) || isFilled.link(cta_link)) && (
-          <div className="lg:w-[38%] lg:shrink-0 lg:pt-[205px]">
-            <div className="flex flex-col items-center justify-center gap-8 rounded-[32px] bg-dusty-rose px-10 py-16 text-center md:px-[92px] md:py-[114px]">
-              {isFilled.richText(cta_title) && (
-                <div className="font-sans text-[25px] leading-[30px] font-bold text-primary">
-                  <PrismicRichText field={cta_title} />
-                </div>
-              )}
-              {isFilled.link(cta_link) && (
-                <Button asChild variant="primary">
-                  <PrismicNextLink field={cta_link}>
-                    {cta_label || "Contattaci"}
-                  </PrismicNextLink>
-                </Button>
-              )}
+        {/* Immagine laterale (variante Host) — ha priorità sul box CTA */}
+        {hasSideImage ? (
+          <div className="lg:w-[38%] lg:shrink-0">
+            <div className="relative aspect-[624/802] w-full overflow-hidden rounded-[8px] bg-neutral-200">
+              <PrismicNextImage
+                field={side_image}
+                fill
+                fallbackAlt=""
+                className="object-cover"
+              />
             </div>
           </div>
+        ) : (
+          /* CTA box */
+          (isFilled.richText(cta_title) || isFilled.link(cta_link)) && (
+            <div className="lg:w-[38%] lg:shrink-0 lg:pt-[205px]">
+              <div className="flex flex-col items-center justify-center gap-8 rounded-[32px] bg-dusty-rose px-10 py-16 text-center md:px-[92px] md:py-[114px]">
+                {isFilled.richText(cta_title) && (
+                  <div className="font-sans text-[25px] leading-[30px] font-bold text-primary">
+                    <PrismicRichText field={cta_title} />
+                  </div>
+                )}
+                {isFilled.link(cta_link) && (
+                  <Button asChild variant="primary">
+                    <PrismicNextLink field={cta_link}>
+                      {cta_label || "Contattaci"}
+                    </PrismicNextLink>
+                  </Button>
+                )}
+              </div>
+            </div>
+          )
         )}
       </div>
     </section>

@@ -1,0 +1,43 @@
+{
+  "id": "image_highlights",
+  "type": "SharedSlice",
+  "name": "ImageHighlights",
+  "description": "Carosello orizzontale di card immagine con titolo e descrizione sotto, frecce grandi.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Image highlights",
+      "imageUrl": "",
+      "primary": {
+        "items": {
+          "type": "Group",
+          "config": {
+            "label": "Card",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              },
+              "title": {
+                "type": "Text",
+                "config": { "label": "Titolo", "placeholder": "Lorem Ipsum" }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Descrizione",
+                  "placeholder": "Lorem ipsum dolor sit amet consectetur.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

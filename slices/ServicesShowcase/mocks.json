@@ -1,0 +1,55 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Più di un hotel", "spans": [] } }]
+      },
+      "body": {
+        "__TYPE__": "FieldContent",
+        "type": "StructuredText",
+        "value": [{ "type": "paragraph", "content": { "text": "Più di un hotel. Spazio, cucina e libertà. Più i servizi che ti aspetti da un hotel di livello.", "spans": [] } }]
+      },
+      "services": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1521783988139-89397d761dce?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1521783988139-89397d761dce?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Check in flessibile" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Appartamenti curati" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Assistenza durante l'intero soggiorno" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              ["image", { "__TYPE__": "FieldContent", "type": "Image", "value": { "origin": { "id": "main", "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80", "width": 900, "height": 1335 }, "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80", "width": 900, "height": 1335, "edit": { "background": "transparent", "zoom": 1, "crop": { "x": 0, "y": 0 } }, "credits": null, "alt": "" } }],
+              ["label", { "__TYPE__": "FieldContent", "type": "Text", "value": "Posizioni selezionate" }],
+              ["description", { "__TYPE__": "FieldContent", "type": "StructuredText", "value": [{ "type": "paragraph", "content": { "text": "Lorem ipsum dolor sit amet consectetur. Risus egestas.", "spans": [] } }] }]
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

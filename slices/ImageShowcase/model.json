@@ -1,0 +1,56 @@
+{
+  "id": "image_showcase",
+  "type": "SharedSlice",
+  "name": "ImageShowcase",
+  "description": "Immagine a tutta larghezza con titolo serif sovrapposto, elenco luoghi/CTA opzionali e frecce grandi.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Image showcase",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo (sovrapposto)",
+            "placeholder": "I preferiti",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "slides": {
+          "type": "Group",
+          "config": {
+            "label": "Slide",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              },
+              "caption": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Didascalia / elenco luoghi",
+                  "placeholder": "Milano Porta Venezia",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              },
+              "cta_label": {
+                "type": "Text",
+                "config": { "label": "Testo CTA", "placeholder": "scopri di più" }
+              },
+              "cta_link": {
+                "type": "Link",
+                "config": { "label": "Link CTA", "select": null, "allowTargetBlank": true }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

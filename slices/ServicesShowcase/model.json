@@ -1,0 +1,61 @@
+{
+  "id": "services_showcase",
+  "type": "SharedSlice",
+  "name": "ServicesShowcase",
+  "description": "Sezione 'Più di un hotel' — titolo serif + testo intro e carousel di card servizio.",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Services showcase",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Più di un hotel",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testo intro",
+            "placeholder": "Più di un hotel. Spazio, cucina e libertà.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "services": {
+          "type": "Group",
+          "config": {
+            "label": "Servizio",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              },
+              "label": {
+                "type": "Text",
+                "config": { "label": "Titolo card", "placeholder": "Check in flessibile" }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Descrizione",
+                  "placeholder": "Lorem ipsum dolor sit amet consectetur.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

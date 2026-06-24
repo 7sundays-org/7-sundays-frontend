@@ -14,4 +14,7 @@ export const components = {
   team_photo: dynamic(() => import("./TeamPhoto")),
   process_steps: dynamic(() => import("./ProcessSteps")),
   faq: dynamic(() => import("./Faq")),
+  image_highlights: dynamic(() => import("./ImageHighlights")),
+  image_showcase: dynamic(() => import("./ImageShowcase")),
+  services_showcase: dynamic(() => import("./ServicesShowcase")),
 };

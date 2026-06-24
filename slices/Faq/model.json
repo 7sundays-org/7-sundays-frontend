@@ -58,6 +58,14 @@
         "cta_link": {
           "type": "Link",
           "config": { "label": "Link CTA", "select": null, "allowTargetBlank": true }
+        },
+        "side_image": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine laterale (in alternativa al box CTA)",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       }
     }
