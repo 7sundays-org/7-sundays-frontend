@@ -29,24 +29,61 @@
             "default_value": "carousel"
           }
         },
-        "filter_category": {
-          "type": "Select",
-          "config": {
-            "label": "Categoria (auto-fetch, opzionale)",
-            "options": ["proprietario", "ospite", "host"]
-          }
-        },
         "testimonials": {
           "type": "Group",
           "config": {
-            "label": "Testimonianze (manuali)",
+            "label": "Testimonianze",
             "fields": {
-              "testimonial_link": {
+              "author_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Nome autore",
+                  "placeholder": "Es. Mario Rossi"
+                }
+              },
+              "author_role": {
+                "type": "Text",
+                "config": {
+                  "label": "Ruolo",
+                  "placeholder": "Es. Ospite, Proprietario"
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Titolo recensione",
+                  "placeholder": "Es. Soggiorno fantastico!"
+                }
+              },
+              "quote": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Testo",
+                  "placeholder": "Testo della recensione",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              },
+              "stars": {
+                "type": "Number",
+                "config": {
+                  "label": "Stelle (1-5)",
+                  "placeholder": "5"
+                }
+              },
+              "source": {
+                "type": "Select",
+                "config": {
+                  "label": "Piattaforma",
+                  "options": ["airbnb", "booking", "google", "manuale"],
+                  "default_value": "manuale"
+                }
+              },
+              "reference_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Testimonianza",
-                  "select": "document",
-                  "customtypes": ["testimonial"]
+                  "label": "Link originale",
+                  "allowTargetBlank": true
                 }
               }
             }

@@ -38,6 +38,19 @@
               "label": {
                 "type": "Text",
                 "config": { "label": "Etichetta (verticale)", "placeholder": "Oltre l'ospitalità" }
+              },
+              "image": {
+                "type": "Image",
+                "config": { "label": "Immagine", "constraint": {}, "thumbnails": [] }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Descrizione",
+                  "placeholder": "Descrizione della consulenza…",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
               }
             }
           }

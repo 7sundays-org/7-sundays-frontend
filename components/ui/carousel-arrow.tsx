@@ -27,7 +27,7 @@ export const CarouselArrow: FC<CarouselArrowProps> = ({
         ariaLabel ?? (direction === "left" ? "Precedente" : "Successivo")
       }
       className={cn(
-        "flex size-11 shrink-0 items-center justify-center rounded-full bg-porcelain/40 text-primary shadow-[0_2px_3px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-colors hover:bg-porcelain disabled:pointer-events-none disabled:opacity-0 md:size-16",
+        "flex size-11 shrink-0 items-center justify-center rounded-full bg-porcelain/40 text-primary shadow-[0_2px_3px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-colors hover:bg-porcelain disabled:pointer-events-none disabled:invisible md:size-16",
         className
       )}
       {...props}

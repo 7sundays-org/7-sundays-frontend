@@ -1,16 +1,35 @@
 "use client";
 
 import { FC, useCallback, useEffect, useRef, useState } from "react";
-import { Content } from "@prismicio/client";
-import { PrismicRichText } from "@prismicio/react";
+import { Content, isFilled } from "@prismicio/client";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { Star } from "lucide-react";
 import { CarouselArrow } from "@/components/ui/carousel-arrow";
 
-export type TestimonialData = Content.TestimonialDocument["data"];
+export type TestimonialData =
+  Content.TestimonialsSliceDefaultPrimaryTestimonialsItem;
+
+type Source = "airbnb" | "booking" | "google" | "manuale" | null | undefined;
+
+const SOURCE_LABELS: Record<NonNullable<Source>, string> = {
+  airbnb: "Airbnb",
+  booking: "Booking.com",
+  google: "Google",
+  manuale: "",
+};
+
+const SourceBadge: FC<{ source: Source }> = ({ source }) => {
+  if (!source || source === "manuale") return null;
+  return (
+    <span className="inline-block rounded-full border border-white/30 px-3 py-1 text-xs font-semibold text-white/70 uppercase tracking-wider">
+      {SOURCE_LABELS[source]}
+    </span>
+  );
+};
 
 export const Stars: FC<{ count?: number }> = ({ count = 5 }) => (
   <div className="flex items-center gap-1.5">
-    {Array.from({ length: count }).map((_, i) => (
+    {Array.from({ length: Math.min(Math.max(count, 1), 5) }).map((_, i) => (
       <Star key={i} className="size-[22px] fill-sandy-clay text-sandy-clay" />
     ))}
   </div>
@@ -18,18 +37,36 @@ export const Stars: FC<{ count?: number }> = ({ count = 5 }) => (
 
 export const TestimonialCard: FC<{ data: TestimonialData }> = ({ data }) => (
   <article className="flex flex-col gap-[42px]">
-    <Stars />
+    <div className="flex items-center gap-4">
+      <Stars count={data.stars ?? 5} />
+      <SourceBadge source={data.source} />
+    </div>
+    {data.title && (
+      <p className="text-subtitle font-bold text-white/80 uppercase tracking-wider">
+        {data.title}
+      </p>
+    )}
     <div className="font-sans text-[2rem] leading-tight font-bold text-white md:text-[45px] md:leading-[58px]">
       <PrismicRichText field={data.quote} />
     </div>
-    {data.author_name && (
-      <p className="text-subtitle text-white uppercase">
-        {data.author_name}
-        {data.author_role && (
-          <span className="text-white/60"> · {data.author_role}</span>
-        )}
-      </p>
-    )}
+    <div className="flex flex-col gap-2">
+      {data.author_name && (
+        <p className="text-subtitle text-white uppercase">
+          {data.author_name}
+          {data.author_role && (
+            <span className="text-white/60"> · {data.author_role}</span>
+          )}
+        </p>
+      )}
+      {isFilled.link(data.reference_link) && (
+        <PrismicLink
+          field={data.reference_link}
+          className="text-xs text-white/50 underline underline-offset-2 hover:text-white/80 transition-colors"
+        >
+          Leggi la recensione completa →
+        </PrismicLink>
+      )}
+    </div>
   </article>
 );
 
@@ -90,14 +127,14 @@ export const TestimonialsCarousel: FC<{ items: TestimonialData[] }> = ({
             aria-label="Testimonianza precedente"
             onClick={() => scrollToIndex(active - 1)}
             disabled={active === 0}
-            className="absolute top-1/2 -left-6 z-10 -translate-y-1/2 lg:-left-16"
+            className="absolute top-1/2 -left-6 z-10 -translate-y-1/2 lg:-left-[200px]"
           />
           <CarouselArrow
             direction="right"
             aria-label="Testimonianza successiva"
             onClick={() => scrollToIndex(active + 1)}
             disabled={active === count - 1}
-            className="absolute top-1/2 -right-6 z-10 -translate-y-1/2 lg:-right-24"
+            className="absolute top-1/2 -right-6 z-10 -translate-y-1/2 lg:-right-[200px]"
           />
         </>
       )}

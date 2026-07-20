@@ -746,6 +746,49 @@ interface TestimonialDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   category: prismic.SelectField<"proprietario" | "ospite" | "host", "filled">;
+
+  /**
+   * Stelle field in *Testimonianza*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 5
+   * - **API ID Path**: testimonial.stars
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  stars: prismic.NumberField;
+
+  /**
+   * Piattaforma field in *Testimonianza*
+   *
+   * - **Field Type**: Select
+   * - **Default Value**: manuale
+   * - **API ID Path**: testimonial.source
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  source: prismic.SelectField<"airbnb" | "booking" | "google" | "manuale">;
+
+  /**
+   * Titolo field in *Testimonianza*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Titolo della recensione
+   * - **API ID Path**: testimonial.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Link di riferimento field in *Testimonianza*
+   *
+   * - **Field Type**: Link
+   * - **API ID Path**: testimonial.reference_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  reference_link: prismic.LinkField;
 }
 
 /**
@@ -1571,14 +1614,60 @@ export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
  */
 export interface TestimonialsSliceDefaultPrimaryTestimonialsItem {
   /**
-   * Testimonianza field in *Testimonials → Carousel → Primary → Testimonianze (manuali)*
+   * Nome autore field in *Testimonials → Carousel → Primary → Testimonianze*
    *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonials.default.primary.testimonials[].testimonial_link
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   * - **Field Type**: Text
+   * - **API ID Path**: testimonials.default.primary.testimonials[].author_name
    */
-  testimonial_link: prismic.ContentRelationshipField<"testimonial">;
+  author_name: prismic.KeyTextField;
+
+  /**
+   * Ruolo field in *Testimonials → Carousel → Primary → Testimonianze*
+   *
+   * - **Field Type**: Text
+   * - **API ID Path**: testimonials.default.primary.testimonials[].author_role
+   */
+  author_role: prismic.KeyTextField;
+
+  /**
+   * Titolo recensione field in *Testimonials → Carousel → Primary → Testimonianze*
+   *
+   * - **Field Type**: Text
+   * - **API ID Path**: testimonials.default.primary.testimonials[].title
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Testo field in *Testimonials → Carousel → Primary → Testimonianze*
+   *
+   * - **Field Type**: Rich Text
+   * - **API ID Path**: testimonials.default.primary.testimonials[].quote
+   */
+  quote: prismic.RichTextField;
+
+  /**
+   * Stelle field in *Testimonials → Carousel → Primary → Testimonianze*
+   *
+   * - **Field Type**: Number
+   * - **API ID Path**: testimonials.default.primary.testimonials[].stars
+   */
+  stars: prismic.NumberField;
+
+  /**
+   * Piattaforma field in *Testimonials → Carousel → Primary → Testimonianze*
+   *
+   * - **Field Type**: Select
+   * - **API ID Path**: testimonials.default.primary.testimonials[].source
+   */
+  source: prismic.SelectField<"airbnb" | "booking" | "google" | "manuale">;
+
+  /**
+   * Link originale field in *Testimonials → Carousel → Primary → Testimonianze*
+   *
+   * - **Field Type**: Link
+   * - **API ID Path**: testimonials.default.primary.testimonials[].reference_link
+   */
+  reference_link: prismic.LinkField;
 }
 
 /**
@@ -1607,17 +1696,7 @@ export interface TestimonialsSliceDefaultPrimary {
   display_mode: prismic.SelectField<"carousel" | "grid", "filled">;
 
   /**
-   * Categoria (auto-fetch, opzionale) field in *Testimonials → Carousel → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: testimonials.default.primary.filter_category
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  filter_category: prismic.SelectField<"proprietario" | "ospite" | "host">;
-
-  /**
-   * Testimonianze (manuali) field in *Testimonials → Carousel → Primary*
+   * Testimonianze field in *Testimonials → Carousel → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*

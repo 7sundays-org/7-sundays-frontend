@@ -13,6 +13,13 @@
           "placeholder": ""
         }
       },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Titolo",
+          "placeholder": "Titolo della recensione"
+        }
+      },
       "author_name": {
         "type": "Text",
         "config": {
@@ -51,6 +58,28 @@
           "placeholder": "",
           "options": ["proprietario", "ospite", "host"],
           "default_value": "ospite"
+        }
+      },
+      "stars": {
+        "type": "Number",
+        "config": {
+          "label": "Stelle (1-5)",
+          "placeholder": "5"
+        }
+      },
+      "source": {
+        "type": "Select",
+        "config": {
+          "label": "Piattaforma",
+          "options": ["airbnb", "booking", "google", "manuale"],
+          "default_value": "manuale"
+        }
+      },
+      "reference_link": {
+        "type": "Link",
+        "config": {
+          "label": "Link di riferimento",
+          "allowTargetBlank": true
         }
       }
     }

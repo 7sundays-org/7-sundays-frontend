@@ -6,6 +6,7 @@ import { ContactFormClient } from "./ContactFormClient";
 import { AboutFormClient } from "./AboutFormClient";
 import { PropertyManagerFormClient } from "./PropertyManagerFormClient";
 import { SoggiorniFormClient } from "./SoggiorniFormClient";
+import { ProprietarioFormClient } from "./ProprietarioFormClient";
 
 export type ContattiProps = SliceComponentProps<Content.ContattiSlice>;
 
@@ -41,6 +42,8 @@ const Contatti: FC<ContattiProps> = ({ slice }) => {
             <PropertyManagerFormClient submitLabel={submit_label} />
           ) : slice.variation === "soggiorni" ? (
             <SoggiorniFormClient submitLabel={submit_label} />
+          ) : slice.variation === "proprietario" ? (
+            <ProprietarioFormClient submitLabel={submit_label} />
           ) : (
             <ContactFormClient submitLabel={submit_label} />
           )
