@@ -181,7 +181,7 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="font-serif text-[64px] leading-[1.04] font-extrabold text-porcelain uppercase transition-opacity hover:opacity-80"
+              className="font-serif text-[59px] leading-[1.04] font-extrabold text-porcelain uppercase transition-opacity hover:opacity-80"
             >
               {item.label}
             </Link>

@@ -157,85 +157,85 @@ section[id] {
  * Sizes/weights follow the brand spec.
  */
 
-/* Title / Header 1 — PP Fragment, ExtraBold, 64px, tracking -2 */
+/* Title / Header 1 — PP Fragment, ExtraBold, 59px, tracking -2 */
 @utility text-h1 {
   font-family: var(--font-serif);
   font-weight: 800;
-  font-size: 4rem; /* 64px */
+  font-size: 3.6875rem; /* 59px */
   line-height: 1.05;
   letter-spacing: -2px;
 }
 @utility text-title {
   font-family: var(--font-serif);
   font-weight: 800;
-  font-size: 4rem; /* 64px */
+  font-size: 3.6875rem; /* 59px */
   line-height: 1.05;
   letter-spacing: -2px;
 }
 
-/* Header 2 — Plus Jakarta Sans, Bold, 45px */
+/* Header 2 — Plus Jakarta Sans, Bold, 40px */
 @utility text-h2 {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 2.8125rem; /* 45px */
+  font-size: 2.5rem; /* 40px */
   line-height: 1.1;
 }
 
-/* Header 2 Italic — Plus Jakarta Sans, Bold Italic, 45px */
+/* Header 2 Italic — Plus Jakarta Sans, Bold Italic, 40px */
 @utility text-h2-italic {
   font-family: var(--font-sans);
   font-weight: 700;
   font-style: italic;
-  font-size: 2.8125rem; /* 45px */
+  font-size: 2.5rem; /* 40px */
   line-height: 1.1;
 }
 
-/* Header 3 — Plus Jakarta Sans, Bold Italic, 30px */
+/* Header 3 — Plus Jakarta Sans, Bold Italic, 25px */
 @utility text-h3 {
   font-family: var(--font-sans);
   font-weight: 700;
   font-style: italic;
-  font-size: 1.875rem; /* 30px */
+  font-size: 1.5625rem; /* 25px */
   line-height: 1.2;
 }
 
-/* Header 4 / Special Head — PP Fragment, ExtraBold, 40px, line-height 45 */
+/* Header 4 / Special Head — PP Fragment, ExtraBold, 35px, line-height 40 */
 @utility text-h4 {
   font-family: var(--font-serif);
   font-weight: 800;
-  font-size: 2.5rem; /* 40px */
-  line-height: 2.8125rem; /* 45px */
+  font-size: 2.1875rem; /* 35px */
+  line-height: 2.5rem; /* 40px */
 }
 
-/* Subtitle — Plus Jakarta Sans, Bold Italic, 25px */
+/* Subtitle — Plus Jakarta Sans, Bold Italic, 20px */
 @utility text-subtitle {
   font-family: var(--font-sans);
   font-weight: 700;
   font-style: italic;
-  font-size: 1.5625rem; /* 25px */
+  font-size: 1.25rem; /* 20px */
   line-height: 1.2;
 }
 
-/* Buttons — Plus Jakarta Sans, ExtraBold, 22px */
+/* Buttons — Plus Jakarta Sans, ExtraBold, 18px */
 @utility text-button {
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: 1.375rem; /* 22px */
+  font-size: 1.125rem; /* 18px */
   line-height: 1;
 }
 
-/* Body title — Plus Jakarta Sans, Bold, 25px, line-height 30 */
+/* Body title — Plus Jakarta Sans, Bold, 20px, line-height 25 */
 @utility text-body-title {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 1.5625rem; /* 25px */
-  line-height: 1.875rem; /* 30px */
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.5625rem; /* 25px */
 }
 
-/* Body — Plus Jakarta Sans, Regular, 25px, line-height 30 */
+/* Body — Plus Jakarta Sans, Regular, 20px, line-height 25 */
 @utility text-body {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 1.5625rem; /* 25px */
-  line-height: 1.875rem; /* 30px */
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.5625rem; /* 25px */
 }
