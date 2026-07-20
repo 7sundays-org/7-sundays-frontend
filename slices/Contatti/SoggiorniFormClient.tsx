@@ -148,7 +148,8 @@ export const SoggiorniFormClient: FC<{ submitLabel?: string | null }> = ({
     e.preventDefault();
     setFieldErrors({});
 
-    const formData = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const formData = new FormData(formEl);
     const raw = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
@@ -179,7 +180,7 @@ export const SoggiorniFormClient: FC<{ submitLabel?: string | null }> = ({
         headers: { "Content-Type": "application/json" },
       });
       setStatus(res.ok ? "success" : "error");
-      if (res.ok) e.currentTarget.reset();
+      if (res.ok) formEl.reset();
     } catch {
       setStatus("error");
     }

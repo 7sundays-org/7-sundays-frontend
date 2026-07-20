@@ -61,7 +61,8 @@ export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
     e.preventDefault();
     setFieldErrors({});
 
-    const formData = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const formData = new FormData(formEl);
     const raw = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
@@ -83,11 +84,11 @@ export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        body: JSON.stringify(result.data),
+        body: JSON.stringify({ ...result.data, form: "contatti" }),
         headers: { "Content-Type": "application/json" },
       });
       setStatus(res.ok ? "success" : "error");
-      if (res.ok) e.currentTarget.reset();
+      if (res.ok) formEl.reset();
     } catch {
       setStatus("error");
     }

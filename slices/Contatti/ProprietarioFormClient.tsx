@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { usePathname } from "next/navigation";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -29,8 +29,8 @@ const STRINGS = {
     propertyType: "Che tipologia di immobile possiedi? *",
     sqm: "Quanti mq è grande? *",
     beds: "Quanti posti letto può ospitare? *",
-    photos: "Carica delle foto del tuo immobile *",
-    photosPlaceholder: "Nessun file selezionato",
+    photos: "Link WeTransfer o Google Drive con le foto *",
+    photosPlaceholder: "https://wetransfer.com/... oppure https://drive.google.com/...",
     message: "Messaggio",
     submit: "Invia",
     submitting: "Invio…",
@@ -43,7 +43,7 @@ const STRINGS = {
       propertyType: "Seleziona la tipologia di immobile",
       sqm: "Indica la metratura",
       beds: "Indica il numero di posti letto",
-      photos: "Carica almeno una foto",
+      photos: "Inserisci un link WeTransfer o Google Drive valido",
     },
   },
   en: {
@@ -53,8 +53,8 @@ const STRINGS = {
     propertyType: "What type of property do you own? *",
     sqm: "How large is it (sqm)? *",
     beds: "How many guests can it accommodate? *",
-    photos: "Upload photos of your property *",
-    photosPlaceholder: "No file selected",
+    photos: "WeTransfer or Google Drive link with photos *",
+    photosPlaceholder: "https://wetransfer.com/... or https://drive.google.com/...",
     message: "Message",
     submit: "Send",
     submitting: "Sending…",
@@ -67,10 +67,24 @@ const STRINGS = {
       propertyType: "Please select a property type",
       sqm: "Please enter the property size",
       beds: "Please enter the number of beds",
-      photos: "Please upload at least one photo",
+      photos: "Please enter a valid WeTransfer or Google Drive link",
     },
   },
 } as const;
+
+const isValidPhotosLink = (url: string) => {
+  try {
+    const { hostname } = new URL(url);
+    return (
+      hostname === "wetransfer.com" ||
+      hostname.endsWith(".wetransfer.com") ||
+      hostname === "drive.google.com" ||
+      hostname === "photos.google.com"
+    );
+  } catch {
+    return false;
+  }
+};
 
 const schema = z.object({
   name: z.string().min(2),
@@ -79,12 +93,11 @@ const schema = z.object({
   propertyType: z.enum(["bilocale", "trilocale", "quadrilocale"]),
   sqm: z.string().min(1),
   beds: z.string().min(1),
+  photos: z.string().refine(isValidPhotosLink),
   message: z.string().optional(),
 });
 
-type FieldErrors = Partial<
-  Record<keyof z.infer<typeof schema> | "photos", string>
->;
+type FieldErrors = Partial<Record<keyof z.infer<typeof schema>, string>>;
 
 const inputClass =
   "w-full rounded-[6px] border border-lilac-ash bg-porcelain px-4 py-3 text-[14px] placeholder:text-placeholder focus:ring-2 focus:ring-ring/40 focus:outline-none";
@@ -96,8 +109,6 @@ export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
   const [status, setStatus] = useState<Status>("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [propertySelected, setPropertySelected] = useState(false);
-  const [fileNames, setFileNames] = useState<string>("");
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const lang = langFromPathname(usePathname());
   const t = STRINGS[lang];
   const propertyOptions = PROPERTY_OPTIONS[lang];
@@ -106,49 +117,41 @@ export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
     e.preventDefault();
     setFieldErrors({});
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const formEl = e.currentTarget;
+    const fd = new FormData(formEl);
 
     const raw = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      city: formData.get("city") as string,
-      propertyType: formData.get("propertyType") as string,
-      sqm: formData.get("sqm") as string,
-      beds: formData.get("beds") as string,
-      message: (formData.get("message") as string) || undefined,
+      name: fd.get("name") as string,
+      email: fd.get("email") as string,
+      city: fd.get("city") as string,
+      propertyType: fd.get("propertyType") as string,
+      sqm: fd.get("sqm") as string,
+      beds: fd.get("beds") as string,
+      photos: fd.get("photos") as string,
+      message: (fd.get("message") as string) || undefined,
     };
-
-    const files = fileInputRef.current?.files;
-    const errs: FieldErrors = {};
 
     const result = schema.safeParse(raw);
     if (!result.success) {
+      const errs: FieldErrors = {};
       for (const issue of result.error.issues) {
-        const key = issue.path[0] as keyof typeof errs;
+        const key = issue.path[0] as keyof FieldErrors;
         if (!errs[key]) errs[key] = t.errors[key as keyof typeof t.errors];
       }
-    }
-    if (!files || files.length === 0) {
-      errs.photos = t.errors.photos;
-    }
-    if (Object.keys(errs).length > 0) {
       setFieldErrors(errs);
       return;
     }
 
     setStatus("submitting");
-    // Use multipart FormData to include files
-    formData.append("form", "proprietario");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        body: JSON.stringify({ ...result.data, form: "proprietario" }),
+        headers: { "Content-Type": "application/json" },
       });
       setStatus(res.ok ? "success" : "error");
       if (res.ok) {
-        form.reset();
-        setFileNames("");
+        formEl.reset();
         setPropertySelected(false);
       }
     } catch {
@@ -203,8 +206,8 @@ export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
         </div>
       </div>
 
-      {/* Row 3: mq + posti letto + foto */}
-      <div className="grid gap-4 md:grid-cols-3">
+      {/* Row 3: mq + posti letto */}
+      <div className="grid gap-4 md:grid-cols-2">
         <div>
           <input name="sqm" type="text" placeholder={t.sqm} className={inputClass} />
           {fieldErrors.sqm && <p className={errorClass}>{fieldErrors.sqm}</p>}
@@ -213,42 +216,21 @@ export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
           <input name="beds" type="text" placeholder={t.beds} className={inputClass} />
           {fieldErrors.beds && <p className={errorClass}>{fieldErrors.beds}</p>}
         </div>
-        <div>
-          <label
-            className={`${inputClass} flex cursor-pointer items-center justify-between gap-2`}
-          >
-            <span className={fileNames ? "text-foreground" : "text-placeholder truncate"}>
-              {fileNames || t.photos}
-            </span>
-            <input
-              ref={fileInputRef}
-              name="photos"
-              type="file"
-              accept="image/*"
-              multiple
-              className="sr-only"
-              onChange={(e) => {
-                const files = e.target.files;
-                if (files && files.length > 0) {
-                  setFileNames(
-                    files.length === 1
-                      ? files[0].name
-                      : `${files.length} file selezionati`
-                  );
-                } else {
-                  setFileNames("");
-                }
-              }}
-            />
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-placeholder" aria-hidden>
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" />
-            </svg>
-          </label>
-          {fieldErrors.photos && <p className={errorClass}>{fieldErrors.photos}</p>}
-        </div>
       </div>
 
-      {/* Row 4: Textarea */}
+      {/* Link foto */}
+      <div>
+        <label className="mb-1 block text-[13px] text-foreground/70">{t.photos}</label>
+        <input
+          name="photos"
+          type="url"
+          placeholder={t.photosPlaceholder}
+          className={inputClass}
+        />
+        {fieldErrors.photos && <p className={errorClass}>{fieldErrors.photos}</p>}
+      </div>
+
+      {/* Textarea */}
       <div>
         <textarea
           name="message"
