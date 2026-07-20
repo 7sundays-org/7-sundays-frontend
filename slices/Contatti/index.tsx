@@ -13,10 +13,11 @@ export type ContattiProps = SliceComponentProps<Content.ContattiSlice>;
 const Contatti: FC<ContattiProps> = ({ slice }) => {
   const { title, subtitle, show_form, submit_label, email, phone, socials } =
     slice.primary;
+  const variation = slice.variation as string;
 
   return (
     <section
-      id="contatti"
+      id="contact"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="w-full bg-white px-6 py-20 md:px-[90px]"
@@ -36,13 +37,13 @@ const Contatti: FC<ContattiProps> = ({ slice }) => {
         </div>
 
         {show_form !== false && (
-          slice.variation === "about" ? (
+          variation === "about" ? (
             <AboutFormClient submitLabel={submit_label} />
-          ) : slice.variation === "propertyManager" ? (
+          ) : variation === "propertyManager" ? (
             <PropertyManagerFormClient submitLabel={submit_label} />
-          ) : slice.variation === "soggiorni" ? (
+          ) : variation === "soggiorni" ? (
             <SoggiorniFormClient submitLabel={submit_label} />
-          ) : slice.variation === "proprietario" ? (
+          ) : variation === "proprietario" ? (
             <ProprietarioFormClient submitLabel={submit_label} />
           ) : (
             <ContactFormClient submitLabel={submit_label} />

@@ -10,14 +10,14 @@ const NAV_BASE = [
   { key: "owners", href: "/host" },
   { key: "pm", href: "/property-manager" },
   { key: "stays", href: "/hosting" },
-  { key: "contact", href: "/#contatti" },
+  { key: "contact", href: "/#contact" },
 ] as const;
 
 const SOCIALS = [
   {
-    label: "Instagram",
-    href: "https://instagram.com/7sundays",
-    name: "Instagram 7Sundays",
+    label: "LinkedIn",
+    href: "https://linkedin.com/company/7sundays",
+    name: "LinkedIn 7Sundays",
   },
   {
     label: "Instagram",
