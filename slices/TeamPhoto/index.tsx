@@ -26,9 +26,9 @@ const TeamPhoto: FC<TeamPhotoProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-white px-6 pb-16 md:px-[90px] md:pb-[80px]"
+      className="w-full bg-white px-6 pt-20 pb-16 md:px-[90px] md:pt-[120px] md:pb-[80px]"
     >
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-8">
         {(isFilled.richText(title) || isFilled.richText(paragraph)) && (
           <div className="flex flex-col gap-4">
             {isFilled.richText(title) && (

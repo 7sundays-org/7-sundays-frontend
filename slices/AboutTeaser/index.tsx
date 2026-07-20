@@ -13,7 +13,7 @@ const AboutTeaser: FC<AboutTeaserProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-white px-6 pt-4 pb-20 md:px-[90px] md:pt-[16px] md:pb-[120px]"
+      className="w-full bg-white px-6 pt-20 pb-20 md:px-[90px] md:pt-[120px] md:pb-[120px]"
     >
       <div className="flex flex-col gap-10">
         {image?.url && (
