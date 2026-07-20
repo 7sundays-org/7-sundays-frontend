@@ -8,11 +8,25 @@ import { langFromPathname } from "@/lib/i18n";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+const ROLE_OPTIONS = {
+  it: [
+    { value: "proprietario", label: "Proprietario di un immobile" },
+    { value: "ospite", label: "Ospite" },
+    { value: "altro", label: "Altro" },
+  ],
+  en: [
+    { value: "proprietario", label: "Property owner" },
+    { value: "ospite", label: "Guest" },
+    { value: "altro", label: "Other" },
+  ],
+} as const;
+
 const STRINGS = {
   it: {
-    name: "Nome e cognome *",
+    name: "Nome *",
     email: "Email *",
-    message: "Messaggio",
+    role: "Sei un *",
+    message: "Come possiamo aiutarti?",
     submit: "Invia",
     submitting: "Invio…",
     success: "Messaggio inviato. Ti ricontatteremo a breve.",
@@ -20,12 +34,14 @@ const STRINGS = {
     errors: {
       name: "Inserisci il tuo nome (min. 2 caratteri)",
       email: "Inserisci un'email valida",
+      role: "Seleziona un'opzione",
     },
   },
   en: {
-    name: "Full name *",
+    name: "Name *",
     email: "Email *",
-    message: "Message",
+    role: "You are a *",
+    message: "How can we help you?",
     submit: "Send",
     submitting: "Sending…",
     success: "Message sent. We'll get back to you shortly.",
@@ -33,6 +49,7 @@ const STRINGS = {
     errors: {
       name: "Please enter your name (min. 2 characters)",
       email: "Please enter a valid email",
+      role: "Please select an option",
     },
   },
 } as const;
@@ -40,6 +57,7 @@ const STRINGS = {
 const schema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
+  role: z.enum(["proprietario", "ospite", "altro"]),
   message: z.string().optional(),
 });
 
@@ -49,13 +67,15 @@ const inputClass =
   "w-full rounded-[6px] border border-lilac-ash bg-porcelain px-4 py-3 text-[14px] placeholder:text-placeholder focus:ring-2 focus:ring-ring/40 focus:outline-none";
 const errorClass = "mt-1 text-xs text-red-600";
 
-export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
+export const AboutFormClient: FC<{ submitLabel?: string | null }> = ({
   submitLabel,
 }) => {
   const [status, setStatus] = useState<Status>("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [roleSelected, setRoleSelected] = useState(false);
   const lang = langFromPathname(usePathname());
   const t = STRINGS[lang];
+  const roleOptions = ROLE_OPTIONS[lang];
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -65,6 +85,7 @@ export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
     const raw = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
+      role: formData.get("role") as string,
       message: (formData.get("message") as string) || undefined,
     };
 
@@ -83,7 +104,7 @@ export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        body: JSON.stringify(result.data),
+        body: JSON.stringify({ ...result.data, form: "about" }),
         headers: { "Content-Type": "application/json" },
       });
       setStatus(res.ok ? "success" : "error");
@@ -99,7 +120,7 @@ export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
       noValidate
       className="mx-auto flex w-full max-w-2xl flex-col gap-[42px]"
     >
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-3">
         <div>
           <input
             name="name"
@@ -119,6 +140,29 @@ export const ContactFormClient: FC<{ submitLabel?: string | null }> = ({
           {fieldErrors.email && (
             <p className={errorClass}>{fieldErrors.email}</p>
           )}
+        </div>
+        <div>
+          <div className="relative">
+            <select
+              name="role"
+              defaultValue=""
+              onChange={() => setRoleSelected(true)}
+              className={`${inputClass} appearance-none pr-10 ${roleSelected ? "text-foreground" : "text-placeholder"}`}
+            >
+              <option value="" disabled>
+                {t.role}
+              </option>
+              {roleOptions.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.label}
+                </option>
+              ))}
+            </select>
+            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-placeholder">
+              &#8964;
+            </span>
+          </div>
+          {fieldErrors.role && <p className={errorClass}>{fieldErrors.role}</p>}
         </div>
       </div>
 

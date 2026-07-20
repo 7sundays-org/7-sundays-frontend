@@ -3,7 +3,9 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import { ContactFormClient } from "./ContactFormClient";
+import { AboutFormClient } from "./AboutFormClient";
 import { PropertyManagerFormClient } from "./PropertyManagerFormClient";
+import { SoggiorniFormClient } from "./SoggiorniFormClient";
 
 export type ContattiProps = SliceComponentProps<Content.ContattiSlice>;
 
@@ -33,8 +35,12 @@ const Contatti: FC<ContattiProps> = ({ slice }) => {
         </div>
 
         {show_form !== false && (
-          slice.variation === "propertyManager" ? (
+          slice.variation === "about" ? (
+            <AboutFormClient submitLabel={submit_label} />
+          ) : slice.variation === "propertyManager" ? (
             <PropertyManagerFormClient submitLabel={submit_label} />
+          ) : slice.variation === "soggiorni" ? (
+            <SoggiorniFormClient submitLabel={submit_label} />
           ) : (
             <ContactFormClient submitLabel={submit_label} />
           )

@@ -5,6 +5,113 @@
   "description": "Sezione contatti generica con form opzionale + email/telefono/social.",
   "variations": [
     {
+      "id": "soggiorni",
+      "name": "Soggiorni",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Form di ricerca alloggio per la pagina Soggiorni",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": { "label": "Titolo", "allowTargetBlank": true, "multi": "paragraph,strong,em" }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": { "label": "Sottotitolo", "allowTargetBlank": true, "multi": "paragraph,strong,em" }
+        },
+        "show_form": {
+          "type": "Boolean",
+          "config": { "label": "Mostra form", "default_value": true, "placeholder_true": "Sì", "placeholder_false": "No" }
+        },
+        "submit_label": {
+          "type": "Text",
+          "config": { "label": "Testo bottone invio", "placeholder": "Invia" }
+        },
+        "email": { "type": "Text", "config": { "label": "Email" } },
+        "phone": { "type": "Text", "config": { "label": "Telefono" } },
+        "socials": {
+          "type": "Group",
+          "config": {
+            "label": "Social",
+            "fields": {
+              "platform": { "type": "Select", "config": { "label": "Piattaforma", "options": ["instagram", "facebook", "linkedin", "tiktok"], "default_value": "instagram" } },
+              "url": { "type": "Link", "config": { "label": "URL", "select": null, "allowTargetBlank": true } }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "about",
+      "name": "About",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Form con campo 'Sei un *' per la pagina About",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Hai delle domande da farci?",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sottotitolo",
+            "placeholder": "Lascia i tuoi contatti per essere ricontattato.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "show_form": {
+          "type": "Boolean",
+          "config": {
+            "label": "Mostra form",
+            "default_value": true,
+            "placeholder_true": "Sì",
+            "placeholder_false": "No"
+          }
+        },
+        "submit_label": {
+          "type": "Text",
+          "config": { "label": "Testo bottone invio", "placeholder": "Invia" }
+        },
+        "email": {
+          "type": "Text",
+          "config": { "label": "Email", "placeholder": "7sundays@7sundays.it" }
+        },
+        "phone": {
+          "type": "Text",
+          "config": { "label": "Telefono", "placeholder": "+39 393 004 7956" }
+        },
+        "socials": {
+          "type": "Group",
+          "config": {
+            "label": "Social",
+            "fields": {
+              "platform": {
+                "type": "Select",
+                "config": {
+                  "label": "Piattaforma",
+                  "options": ["instagram", "facebook", "linkedin", "tiktok"],
+                  "default_value": "instagram"
+                }
+              },
+              "url": {
+                "type": "Link",
+                "config": { "label": "URL", "select": null, "allowTargetBlank": true }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "propertyManager",
       "name": "Property Manager",
       "docURL": "...",
