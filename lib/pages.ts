@@ -60,7 +60,7 @@ export const PAGES: Record<
   },
   proprietario: {
     type: "proprietario_page",
-    path: "/proprietario",
+    path: "/host",
     h1: "Proprietario",
     meta: {
       it: {

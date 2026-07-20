@@ -23,13 +23,13 @@ export const repositoryName =
 const routes: Route[] = [
   // Italian (master locale) — no prefix.
   { type: "home_page", lang: "it-it", path: "/" },
-  { type: "proprietario_page", lang: "it-it", path: "/proprietario" },
+  { type: "proprietario_page", lang: "it-it", path: "/host" },
   { type: "hosting_page", lang: "it-it", path: "/hosting" },
   { type: "about_page", lang: "it-it", path: "/about" },
   { type: "academy_page", lang: "it-it", path: "/property-manager" },
   // English — under /en.
   { type: "home_page", lang: "en-us", path: "/en" },
-  { type: "proprietario_page", lang: "en-us", path: "/en/proprietario" },
+  { type: "proprietario_page", lang: "en-us", path: "/en/host" },
   { type: "hosting_page", lang: "en-us", path: "/en/hosting" },
   { type: "about_page", lang: "en-us", path: "/en/about" },
   { type: "academy_page", lang: "en-us", path: "/en/property-manager" },

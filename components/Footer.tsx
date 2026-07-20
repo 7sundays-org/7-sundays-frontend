@@ -7,7 +7,7 @@ import { dict, langFromPathname, localizeHref } from "@/lib/i18n";
 
 const NAV_BASE = [
   { key: "about", href: "/about" },
-  { key: "owners", href: "/proprietario" },
+  { key: "owners", href: "/host" },
   { key: "pm", href: "/property-manager" },
   { key: "stays", href: "/hosting" },
   { key: "contact", href: "/#contatti" },
