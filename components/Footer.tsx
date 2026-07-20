@@ -1,12 +1,17 @@
-import Link from "next/link";
+"use client";
 
-const NAV_LINKS = [
-  { label: "Chi siamo", href: "/about" },
-  { label: "Proprietari", href: "/proprietario" },
-  { label: "Property manager", href: "/property-manager" },
-  { label: "Soggiorni", href: "/soggiorni" },
-  { label: "Contatti", href: "/#contatti" },
-];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { dict, langFromPathname, localizeHref } from "@/lib/i18n";
+
+const NAV_BASE = [
+  { key: "about", href: "/about" },
+  { key: "owners", href: "/proprietario" },
+  { key: "pm", href: "/property-manager" },
+  { key: "stays", href: "/hosting" },
+  { key: "contact", href: "/#contatti" },
+] as const;
 
 const SOCIALS = [
   {
@@ -23,6 +28,13 @@ const SOCIALS = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+  const lang = langFromPathname(pathname);
+  const navLinks = NAV_BASE.map((item) => ({
+    label: dict[lang].footer[item.key],
+    href: localizeHref(item.href, lang),
+  }));
+
   return (
     <footer className="w-full bg-white px-6 pt-16 pb-8 text-foreground md:px-[90px]">
       <div className="flex flex-col gap-12 md:flex-row md:justify-between">
@@ -42,18 +54,21 @@ export function Footer() {
               WebkitMaskSize: "contain",
             }}
           />
-          <address className="text-body text-foreground/80 not-italic">
-            Via Andrea Maria Ampère, 56
-            <br />
-            <a href="mailto:info@7sundays.it" className="hover:underline">
-              E info@7sundays.it
+          <address className="flex flex-col gap-2 text-body text-foreground/80 not-italic">
+            <span className="flex items-center gap-2">
+              <MapPin size={16} className="shrink-0 translate-y-px" />
+              Via Andrea Maria Ampère, 56
+            </span>
+            <a href="mailto:info@7sundays.it" className="flex items-center gap-2 hover:underline">
+              <Mail size={16} className="shrink-0 translate-y-px" />
+              info@7sundays.it
             </a>
-            <br />
-            <a href="tel:+393930047956" className="hover:underline">
-              M +39 393 004 7956
+            <a href="tel:+393930047956" className="flex items-center gap-2 hover:underline">
+              <Phone size={16} className="shrink-0 translate-y-px" />
+              +39 393 004 7956
             </a>
-            <br />
-            <a href="https://7sundays.it" className="hover:underline">
+            <a href="https://7sundays.it" className="flex items-center gap-2 hover:underline">
+              <Globe size={16} className="shrink-0 translate-y-px" />
               7sundays.it
             </a>
           </address>
@@ -62,9 +77,9 @@ export function Footer() {
         {/* Nav + socials */}
         <div className="flex gap-16">
           <nav className="flex flex-col gap-3 text-body">
-            {NAV_LINKS.map((item) => (
+            {navLinks.map((item) => (
               <Link
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 className="text-foreground/80 transition-colors hover:text-foreground"
               >

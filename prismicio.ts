@@ -17,12 +17,22 @@ export const repositoryName =
  *
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
-// TODO: Update the routes array to match your project's route structure.
+// Locale-aware routes. Italian is the master locale (`it-it`) and is served at
+// the root; English (`en-us`) is served under `/en`. The `lang`-scoped routes
+// make Prismic resolve each document's `url` to the correct localized path.
 const routes: Route[] = [
-  { type: "home_page", path: "/" },
-  { type: "proprietario_page", path: "/proprietario" },
-  { type: "hosting_page", path: "/hosting" },
-  { type: "about_page", path: "/about" },
+  // Italian (master locale) — no prefix.
+  { type: "home_page", lang: "it-it", path: "/" },
+  { type: "proprietario_page", lang: "it-it", path: "/proprietario" },
+  { type: "hosting_page", lang: "it-it", path: "/hosting" },
+  { type: "about_page", lang: "it-it", path: "/about" },
+  { type: "academy_page", lang: "it-it", path: "/property-manager" },
+  // English — under /en.
+  { type: "home_page", lang: "en-us", path: "/en" },
+  { type: "proprietario_page", lang: "en-us", path: "/en/proprietario" },
+  { type: "hosting_page", lang: "en-us", path: "/en/hosting" },
+  { type: "about_page", lang: "en-us", path: "/en/about" },
+  { type: "academy_page", lang: "en-us", path: "/en/property-manager" },
 ];
 
 /**

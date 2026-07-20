@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { LangHtmlSync } from "@/components/LangHtmlSync";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ const ppFragment = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://7sundays.it"),
   title: "7 Sundays",
   description: "7 Sundays frontend",
 };
@@ -44,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${jakarta.variable} ${ppFragment.variable}`}>
       <body className="overflow-x-hidden antialiased">
+        <LangHtmlSync />
         <Navbar />
         {children}
         <Footer />

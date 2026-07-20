@@ -2,16 +2,23 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
+import {
+  dict,
+  langFromPathname,
+  localizeHref,
+  switchLangHref,
+} from "@/lib/i18n";
 
-const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Proprietari", href: "/proprietario" },
-  { label: "Property Manager", href: "/property-manager" },
-  { label: "Soggiorni", href: "/hosting" },
-];
+const NAV_BASE = [
+  { key: "home", href: "/" },
+  { key: "about", href: "/about" },
+  { key: "owners", href: "/proprietario" },
+  { key: "pm", href: "/property-manager" },
+  { key: "stays", href: "/hosting" },
+] as const;
 
 /**
  * The asset is a single-color (near-white) SVG. We render it as a CSS mask so
@@ -43,6 +50,13 @@ function Logo({ onLight }: { onLight?: boolean }) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const pathname = usePathname();
+  const lang = langFromPathname(pathname);
+  const navItems = NAV_BASE.map((item) => ({
+    label: dict[lang].nav[item.key],
+    href: localizeHref(item.href, lang),
+  }));
 
   // Lock background scroll while the sidebar is open.
   useEffect(() => {
@@ -79,7 +93,7 @@ export function Navbar() {
         )}
       >
         <nav className="flex h-[34px] items-center justify-between">
-          <Link href="/" aria-label="7Sundays — Home">
+          <Link href={localizeHref("/", lang)} aria-label="7Sundays — Home">
             <Logo onLight={whiteMode} />
           </Link>
 
@@ -88,17 +102,34 @@ export function Navbar() {
             {open && (
               <span
                 className={cn(
-                  "font-sans text-[30px] leading-[58px] font-medium tracking-[0.05em]",
+                  "flex items-center gap-2 font-sans text-[30px] leading-[58px] font-medium tracking-[0.05em]",
                   whiteMode ? "text-primary" : "text-porcelain"
                 )}
               >
-                EN / IT
+                {(["en", "it"] as const).map((l, i) => (
+                  <span key={l} className="flex items-center gap-2">
+                    {i > 0 && <span aria-hidden>/</span>}
+                    <Link
+                      href={switchLangHref(pathname, l)}
+                      aria-current={l === lang ? "true" : undefined}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "transition-opacity",
+                        l === lang
+                          ? "opacity-100"
+                          : "opacity-50 hover:opacity-80"
+                      )}
+                    >
+                      {l.toUpperCase()}
+                    </Link>
+                  </span>
+                ))}
               </span>
             )}
 
             <button
               type="button"
-              aria-label={open ? "Chiudi menu" : "Apri menu"}
+              aria-label={open ? dict[lang].menu.close : dict[lang].menu.open}
               aria-expanded={open}
               onClick={() => setOpen((o) => !o)}
               className={cn(
@@ -129,7 +160,7 @@ export function Navbar() {
       {open && (
         <button
           type="button"
-          aria-label="Chiudi menu"
+          aria-label={dict[lang].menu.close}
           tabIndex={-1}
           onClick={() => setOpen(false)}
           className="fixed inset-0 z-[105] cursor-default bg-transparent"
@@ -145,7 +176,7 @@ export function Navbar() {
       >
         {/* EN/IT and the close (X) live in the header above, over this panel */}
         <nav className="mt-[122px] flex flex-col items-end gap-8 text-right">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}

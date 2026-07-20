@@ -10,7 +10,12 @@
       "Bash(echo \"tsc exit: $?\")",
       "Bash(echo \"eslint exit: $?\")",
       "Bash(echo \"eslint: $?\")",
-      "Bash(echo \"tsc: $?\")"
+      "Bash(echo \"tsc: $?\")",
+      "Bash(curl -s \"https://7sundays.cdn.prismic.io/api/v2\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{try{const j=JSON.parse\\(d\\);console.log\\('Languages:',JSON.stringify\\(j.languages,null,2\\)\\);console.log\\('Types:',Object.keys\\(j.types||{}\\).join\\(', '\\)\\);}catch\\(e\\){console.log\\('RAW \\(primi 600 char\\):',d.slice\\(0,600\\)\\)}}\\)\")",
+      "WebSearch",
+      "Bash(awk '/type Route = \\\\{|interface Route/{flag=1} flag{print} /^\\\\};|^}/{if\\(flag\\){flag=0}}' node_modules/@prismicio/client/dist/index.d.ts)",
+      "Bash(echo \"TSC_EXIT=$?\")"
     ]
   }
 }
