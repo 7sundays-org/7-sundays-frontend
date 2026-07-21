@@ -108,12 +108,12 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
                 )}
                 <div className="flex flex-col gap-1">
                   {service.label && (
-                    <span className="font-sans text-[25px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase">
+                    <span className="font-sans text-[20px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase">
                       {service.label}
                     </span>
                   )}
                   {isFilled.richText(service.description) && (
-                    <div className="font-sans text-[25px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
+                    <div className="font-sans text-[20px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
                       <PrismicRichText field={service.description} />
                     </div>
                   )}
