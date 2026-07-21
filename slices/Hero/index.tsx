@@ -32,7 +32,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         />
       )}
       {/* Maschera per leggibilità del testo sopra la foto */}
-      <div className="absolute inset-0 -z-10 bg-black/35" />
+      <div className="absolute inset-0 -z-30 bg-white" />
 
       <div className="mx-auto flex max-w-[1028px] flex-col items-center gap-13 px-6 text-center">
         <h1 className="text-h4 uppercase md:text-h1">
