@@ -65,12 +65,12 @@ export const CategoryCarousel: FC<{ cards: Cards }> = ({ cards }) => {
               <div className="flex w-full max-w-[425px] flex-col gap-4 md:h-full md:max-h-[672px] md:shrink-0 md:justify-between md:gap-[136px]">
                 <div className="flex flex-col gap-4 md:gap-6">
                   {card.eyebrow && (
-                    <span className="font-sans text-[22px] leading-tight font-semibold tracking-[0.05em] text-blue-ink uppercase italic md:text-[30px] md:leading-[58px]">
+                    <span className="font-sans text-[20px] leading-tight font-semibold tracking-[0.05em] text-blue-ink uppercase italic md:text-[25px] md:leading-[32px]">
                       {card.eyebrow}
                     </span>
                   )}
                   {card.title && (
-                    <h2 className="font-sans text-[2rem] leading-tight font-bold text-blue-ink italic md:text-[55px] md:leading-[58px]">
+                    <h2 className="font-sans text-[2rem] leading-tight font-bold text-blue-ink italic md:text-[40px] md:leading-[48px]">
                       <PrismicRichText
                         field={card.title}
                         components={{

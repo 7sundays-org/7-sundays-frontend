@@ -46,7 +46,7 @@ const Faq: FC<FaqProps> = ({ slice }) => {
         {/* FAQ column */}
         <div className="flex flex-1 flex-col gap-10">
           {title && (
-            <h2 className="font-serif text-[1.875rem] leading-tight font-extrabold text-primary md:text-[70px]">
+            <h2 className="font-serif text-[1.875rem] leading-tight font-extrabold text-primary md:text-[60px]">
               <PrismicRichText
                 field={title}
                 components={{ paragraph: ({ children }) => <>{children}</> }}
@@ -60,7 +60,7 @@ const Faq: FC<FaqProps> = ({ slice }) => {
         {/* Immagine laterale (variante Host) — ha priorità sul box CTA */}
         {hasSideImage ? (
           <div className="lg:w-[38%] lg:shrink-0">
-            <div className="relative aspect-[624/802] w-full shrink-0 overflow-hidden rounded-[8px]">
+            <div className="relative aspect-[624/802] w-full max-h-[480px] rounded-[8px]">
               <PrismicNextImage
                 field={side_image}
                 fill

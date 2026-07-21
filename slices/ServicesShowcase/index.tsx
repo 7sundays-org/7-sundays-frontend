@@ -70,7 +70,7 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
       {/* Header */}
       <div className="flex flex-col gap-3 px-6 pt-[80px] pb-[40px] md:px-[90px]">
         {isFilled.richText(title) && (
-          <h2 className="font-serif text-[2.75rem] leading-tight font-extrabold text-primary md:text-[70px]">
+          <h2 className="font-serif text-[2.75rem] leading-tight font-extrabold text-primary md:text-[60px]">
             <PrismicRichText
               field={title}
               components={{ paragraph: ({ children }) => <>{children}</> }}
@@ -78,7 +78,7 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
           </h2>
         )}
         {isFilled.richText(body) && (
-          <div className="max-w-[760px] text-body text-foreground">
+          <div className="max-w-[760px] text-[30px] text-foreground">
             <PrismicRichText field={body} />
           </div>
         )}
@@ -106,14 +106,14 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
                     />
                   </div>
                 )}
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                   {service.label && (
                     <span className="font-sans text-[20px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase">
                       {service.label}
                     </span>
                   )}
                   {isFilled.richText(service.description) && (
-                    <div className="font-sans text-[20px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
+                    <div className="font-sans text-[20px] leading-[30px] tracking-[0.05em] text-foreground italic">
                       <PrismicRichText field={service.description} />
                     </div>
                   )}

@@ -36,8 +36,8 @@ export function Footer() {
   }));
 
   return (
-    <footer className="w-full bg-white px-6 pt-16 pb-8 text-foreground md:px-[90px]">
-      <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+    <footer className="w-full bg-white px-6 pt-0 pb-8 text-foreground md:px-[90px]">
+      <div className="border-t border-border pt-16 flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         {/* Col 1: Logo */}
         <div className="shrink-0">
           <span

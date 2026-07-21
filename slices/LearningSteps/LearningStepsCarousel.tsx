@@ -20,7 +20,7 @@ interface Props {
 }
 
 const NORMAL_W = { mobile: 200, desktop: 313 };
-const EXPANDED_W = { mobile: 320, desktop: 620 };
+const EXPANDED_W = { mobile: 240, desktop: 465 };
 
 export function LearningStepsCarousel({
   items,

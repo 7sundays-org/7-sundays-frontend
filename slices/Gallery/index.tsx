@@ -92,7 +92,7 @@ const Gallery: FC<GalleryProps> = ({ slice }) => {
             ))}
           </div>
           {title && (
-            <div className="mt-6 text-right font-sans text-[2rem] leading-tight font-bold text-primary italic md:text-[45px] md:leading-[58px]">
+            <div className="mt-6 text-right font-sans text-[2rem] leading-tight font-bold text-primary italic md:text-[40px] md:leading-[48px]">
               <PrismicRichText field={title} />
             </div>
           )}
@@ -121,7 +121,7 @@ const Gallery: FC<GalleryProps> = ({ slice }) => {
 
           {/* Caption overlaid on the image, bottom-right */}
           {title && (
-            <div className="pointer-events-none absolute right-6 bottom-8 z-10 max-w-[748px] text-right font-sans text-[2rem] leading-tight font-bold text-primary italic md:right-12 md:bottom-12 md:text-[45px] md:leading-[58px]">
+            <div className="pointer-events-none absolute right-6 bottom-8 z-10 max-w-[748px] text-right font-sans text-[2rem] leading-tight font-bold text-primary italic md:right-12 md:bottom-12 md:text-[40px] md:leading-[48px]">
               <PrismicRichText field={title} />
             </div>
           )}

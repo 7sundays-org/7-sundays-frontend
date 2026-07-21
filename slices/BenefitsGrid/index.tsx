@@ -42,7 +42,7 @@ const BenefitsGrid: FC<BenefitsGridProps> = ({ slice }) => {
         <div className="flex flex-col gap-10 lg:w-[427px] lg:shrink-0">
           <div className="flex flex-col gap-6">
             {isFilled.richText(title) && (
-              <h2 className="font-sans text-[2.25rem] leading-tight font-extrabold text-primary md:text-[45px] md:leading-[55px]">
+              <h2 className="font-sans text-[2.25rem] leading-tight font-extrabold text-primary md:text-[40px] md:leading-[48px]">
                 <PrismicRichText
                   field={title}
                   components={{ paragraph: ({ children }) => <>{children}</> }}

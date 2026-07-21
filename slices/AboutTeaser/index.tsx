@@ -32,12 +32,12 @@ const AboutTeaser: FC<AboutTeaserProps> = ({ slice }) => {
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
           <div className="flex flex-col">
             {eyebrow && (
-              <span className="font-sans text-[30px] leading-[58px] font-semibold tracking-[0.05em] text-blue-ink italic">
+              <span className="font-sans text-[25px] leading-[32px] font-semibold tracking-[0.05em] text-blue-ink italic">
                 {eyebrow}
               </span>
             )}
             {title && (
-              <h2 className="font-sans text-[2rem] leading-tight font-extrabold text-blue-ink md:text-[55px] md:leading-[58px]">
+              <h2 className="font-sans text-[2rem] leading-tight font-extrabold text-blue-ink md:text-[40px] md:leading-[48px]">
                 <PrismicRichText
                   field={title}
                   components={{

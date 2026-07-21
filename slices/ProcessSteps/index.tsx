@@ -79,12 +79,12 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
         {/* Header */}
         <div className="flex flex-col gap-2 px-6 pt-10 pb-8 md:px-[90px] md:pt-[80px] md:pb-[40px]">
           {eyebrow && (
-            <span className="font-sans text-[20px] leading-[32px] font-semibold tracking-[0.05em] text-primary italic md:text-[30px] md:leading-[47px]">
+            <span className="font-sans text-[18px] leading-[28px] font-semibold tracking-[0.05em] text-primary italic md:text-[25px] md:leading-[32px]">
               {eyebrow}
             </span>
           )}
           {title && (
-            <h2 className="font-sans text-[45px] leading-tight font-extrabold text-primary md:text-[55px] md:leading-[58px]">
+            <h2 className="font-sans text-[40px] leading-tight font-extrabold text-primary md:text-[40px] md:leading-[48px]">
               <PrismicRichText
                 field={title}
                 components={{ paragraph: ({ children }) => <>{children}</> }}
@@ -128,14 +128,14 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
                 )}
 
                 {/* Label (solo desktop) + descrizione */}
-                <div className="mt-4 flex flex-col gap-1 px-6 md:mt-0 md:px-0">
+                <div className="mt-4 flex flex-col gap-2 px-6 md:mt-0 md:px-0">
                   {step.label && (
                     <span className="hidden font-sans text-[25px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase md:block">
                       {step.label}
                     </span>
                   )}
                   {step.description && (
-                    <div className="font-sans text-[20px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
+                    <div className="font-sans text-[20px] leading-[30px] tracking-[0.05em] text-foreground italic">
                       <PrismicRichText field={step.description} />
                     </div>
                   )}

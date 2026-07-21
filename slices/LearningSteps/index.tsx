@@ -44,7 +44,7 @@ const LearningSteps: FC<LearningStepsProps> = ({ slice }) => {
       {/* Header */}
       <div className="mb-12 flex flex-col gap-4 md:mb-[80px]">
         {isFilled.richText(title) && (
-          <h2 className="font-sans text-[2rem] leading-tight font-bold text-primary italic md:text-[45px]">
+          <h2 className="font-sans text-[2rem] leading-tight font-bold text-primary italic md:text-[40px]">
             <PrismicRichText
               field={title}
               components={{ paragraph: ({ children }) => <>{children}</> }}

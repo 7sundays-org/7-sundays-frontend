@@ -79,7 +79,7 @@ const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
         "w-full",
         // Full bleed: immagine edge-to-edge senza padding/rounding (es. "Lasciati ispirare").
         // Default: inset + angoli arrotondati (es. "I preferiti").
-        full_bleed ? "" : "px-6 py-8 md:px-[90px] md:py-[80px]"
+        full_bleed ? "" : "px-6 pb-8 md:px-[90px] md:pb-[80px]"
       )}
     >
       <div

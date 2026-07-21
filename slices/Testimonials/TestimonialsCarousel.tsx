@@ -46,7 +46,7 @@ export const TestimonialCard: FC<{ data: TestimonialData }> = ({ data }) => (
         {data.title}
       </p>
     )}
-    <div className="line-clamp-3 font-sans text-[1.875rem] leading-[1.4] font-bold italic text-white md:text-[45px] md:leading-[58px] md:not-italic">
+    <div className="line-clamp-3 font-sans text-[1.875rem] leading-[1.4] font-bold italic text-white md:text-[40px] md:leading-[48px] md:not-italic">
       <PrismicRichText field={data.quote} />
     </div>
     <div className="flex flex-col gap-2">
@@ -108,48 +108,71 @@ export const TestimonialsCarousel: FC<{ items: TestimonialData[] }> = ({
   }, []);
 
   return (
-    <div className="relative">
-      <div
-        ref={scrollerRef}
-        className="carousel-track flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {items.map((data, i) => (
-          <div key={i} className="w-full shrink-0 snap-start">
-            <TestimonialCard data={data} />
-          </div>
-        ))}
-      </div>
-
+    <div className="flex flex-col gap-4">
+      {/* Mobile: frecce sopra il testo */}
       {count > 1 && (
-        <>
-          {/* Dots — mobile only */}
-          <div className="mt-8 flex items-center gap-2.5 md:hidden">
-            {items.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Testimonianza ${i + 1}`}
-                onClick={() => scrollToIndex(i)}
-                className={`size-[6px] rounded-full transition-colors ${i === active ? "bg-white" : "bg-white/40"}`}
-              />
-            ))}
-          </div>
-
+        <div className="flex items-center gap-2 md:hidden">
           <CarouselArrow
             direction="left"
             aria-label="Testimonianza precedente"
             onClick={() => scrollToIndex(active - 1)}
             disabled={active === 0}
-            className="absolute top-1/2 -left-6 z-10 -translate-y-1/2 lg:-left-[200px]"
           />
           <CarouselArrow
             direction="right"
             aria-label="Testimonianza successiva"
             onClick={() => scrollToIndex(active + 1)}
             disabled={active === count - 1}
-            className="absolute top-1/2 -right-6 z-10 -translate-y-1/2 lg:-right-[200px]"
           />
-        </>
+        </div>
       )}
+
+      <div className="relative">
+        <div
+          ref={scrollerRef}
+          className="carousel-track flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {items.map((data, i) => (
+            <div key={i} className="w-full shrink-0 snap-start">
+              <TestimonialCard data={data} />
+            </div>
+          ))}
+        </div>
+
+        {count > 1 && (
+          <>
+            {/* Dots — mobile only */}
+            <div className="mt-8 flex items-center gap-2.5 md:hidden">
+              {items.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Testimonianza ${i + 1}`}
+                  onClick={() => scrollToIndex(i)}
+                  className={`size-[6px] rounded-full transition-colors ${i === active ? "bg-white" : "bg-white/40"}`}
+                />
+              ))}
+            </div>
+
+            {/* Desktop: frecce ai lati */}
+            <div className="hidden md:contents">
+              <CarouselArrow
+                direction="left"
+                aria-label="Testimonianza precedente"
+                onClick={() => scrollToIndex(active - 1)}
+                disabled={active === 0}
+                className="absolute top-1/2 -left-6 z-10 -translate-y-1/2 lg:-left-[100px]"
+              />
+              <CarouselArrow
+                direction="right"
+                aria-label="Testimonianza successiva"
+                onClick={() => scrollToIndex(active + 1)}
+                disabled={active === count - 1}
+                className="absolute top-1/2 -right-6 z-10 -translate-y-1/2 lg:-right-[100px]"
+              />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

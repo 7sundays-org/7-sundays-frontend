@@ -18,7 +18,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-primary px-8 pt-[62px] pb-[31px] md:py-28 md:px-6 lg:py-[121px] lg:px-[248px]"
+      className="w-full bg-primary px-6 pt-8 pb-8 md:py-14 md:px-10 lg:py-[80px] lg:px-[140px]"
     >
       {title && (
         <div className="mb-10 text-h4 text-white">

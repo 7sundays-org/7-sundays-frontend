@@ -32,7 +32,7 @@ const TeamPhoto: FC<TeamPhotoProps> = ({ slice }) => {
         {(isFilled.richText(title) || isFilled.richText(paragraph)) && (
           <div className="flex flex-col gap-4">
             {isFilled.richText(title) && (
-              <div className="font-sans text-[2rem] leading-tight font-bold text-foreground md:text-[45px] md:leading-[58px]">
+              <div className="font-sans text-[2rem] leading-tight font-bold text-foreground md:text-[40px] md:leading-[48px]">
                 <PrismicRichText field={title} />
               </div>
             )}

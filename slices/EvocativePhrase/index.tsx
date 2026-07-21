@@ -36,7 +36,7 @@ const EvocativePhrase: FC<EvocativePhraseProps> = ({ slice }) => {
       <div className="flex flex-col gap-10">
         <div
           className={cn(
-            "font-sans text-[1.875rem] leading-[40px] font-bold italic md:text-[45px] md:leading-[58px]",
+            "font-sans text-[1.875rem] leading-[40px] font-bold italic md:text-[40px] md:leading-[48px]",
             phraseColor
           )}
         >
