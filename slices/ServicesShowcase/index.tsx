@@ -88,7 +88,7 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
       <div className="relative">
         <div
           ref={scrollerRef}
-          className="overflow-x-auto px-6 pb-12 md:px-[89px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="carousel-track overflow-x-auto px-6 pb-12 md:px-[89px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           <div className="mx-auto flex w-max gap-[32px]">
             {items.map((service, i) => (

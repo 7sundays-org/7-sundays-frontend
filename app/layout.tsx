@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { LangHtmlSync } from "@/components/LangHtmlSync";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
     <html lang="it" className={`${jakarta.variable} ${ppFragment.variable}`}>
       <body className="overflow-x-hidden antialiased">
         <LangHtmlSync />
+        <ScrollReveal />
         <Navbar />
         {children}
         <Footer />

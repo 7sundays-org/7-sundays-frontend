@@ -3,8 +3,9 @@ import type * as prismic from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FaqAccordion } from "./FaqAccordion";
+
 
 type FaqItem = {
   question: prismic.KeyTextField;
@@ -53,21 +54,7 @@ const Faq: FC<FaqProps> = ({ slice }) => {
             </h2>
           )}
 
-          <div className="flex flex-col">
-            {faqs.map((item, i) => (
-              <details key={i} className="group border-b border-black/50">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-body text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
-                  {item.question}
-                  <ChevronDown className="size-5 shrink-0 text-foreground/60 transition-transform duration-300 group-open:rotate-180" />
-                </summary>
-                {isFilled.richText(item.answer) && (
-                  <div className="pb-5 text-body text-foreground/70">
-                    <PrismicRichText field={item.answer} />
-                  </div>
-                )}
-              </details>
-            ))}
-          </div>
+          <FaqAccordion items={faqs} />
         </div>
 
         {/* Immagine laterale (variante Host) — ha priorità sul box CTA */}

@@ -239,3 +239,34 @@ section[id] {
   font-size: 1.25rem; /* 20px */
   line-height: 1.5625rem; /* 25px */
 }
+
+/* Scroll-reveal — tutte le sezioni partono invisibili e scorrono su */
+[data-slice-type] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+[data-slice-type].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* L'hero è sempre visibile (above the fold) */
+[data-slice-type="hero"] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Animazione entrata caroselli — scorrono da destra con delay */
+.carousel-track {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease-out 0.25s, transform 0.7s ease-out 0.25s;
+}
+
+[data-slice-type].in-view .carousel-track {
+  opacity: 1;
+  transform: translateX(0);
+}

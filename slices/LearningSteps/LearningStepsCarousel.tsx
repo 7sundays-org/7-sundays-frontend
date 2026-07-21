@@ -64,7 +64,7 @@ export function LearningStepsCarousel({
   return (
     <div className="relative">
       {/* Track */}
-      <div className="overflow-hidden">
+      <div className="carousel-track overflow-hidden">
         <div
           className="flex gap-0 transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${getTranslate()}px)` }}

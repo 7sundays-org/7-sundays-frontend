@@ -102,7 +102,7 @@ const Gallery: FC<GalleryProps> = ({ slice }) => {
           {/* Full-bleed carousel; section is exactly as tall as the image */}
           <div
             ref={scrollerRef}
-            className="flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="carousel-track flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {items.map((it, i) => (
               <div

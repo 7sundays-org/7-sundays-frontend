@@ -97,7 +97,7 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
         <div className="relative">
           <div
             ref={scrollerRef}
-            className="flex snap-x snap-mandatory overflow-x-auto pb-12 [-ms-overflow-style:none] [scrollbar-width:none] md:snap-none md:gap-[32px] md:px-[89px] [&::-webkit-scrollbar]:hidden"
+            className="carousel-track flex snap-x snap-mandatory overflow-x-auto pb-12 [-ms-overflow-style:none] [scrollbar-width:none] md:snap-none md:gap-[32px] md:px-[89px] [&::-webkit-scrollbar]:hidden"
           >
             {items.map((step, i) => (
               <article

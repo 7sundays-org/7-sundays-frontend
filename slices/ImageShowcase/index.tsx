@@ -90,7 +90,7 @@ const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
       >
         <div
           ref={scrollerRef}
-          className="flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="carousel-track flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {items.map((slide, i) => (
             <div

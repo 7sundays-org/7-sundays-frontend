@@ -67,7 +67,7 @@ const ImageHighlights: FC<ImageHighlightsProps> = ({ slice }) => {
       <div className="relative">
         <div
           ref={scrollerRef}
-          className="flex gap-[40px] overflow-x-auto px-6 md:px-[90px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="carousel-track flex gap-[40px] overflow-x-auto px-6 md:px-[90px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {items.map((it, i) => (
             <article
