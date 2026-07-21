@@ -20,7 +20,7 @@ const Contatti: FC<ContattiProps> = ({ slice }) => {
       id="contact"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-white px-8 py-10 md:px-[90px] md:py-20"
+      className={`w-full bg-white px-8 py-10 md:px-[90px] md:py-20${variation === "about" ? " border-t border-border" : ""}`}
     >
       <div className="mx-auto flex max-w-4xl flex-col gap-[66px]">
         <div className="flex flex-col items-center gap-4 text-center">

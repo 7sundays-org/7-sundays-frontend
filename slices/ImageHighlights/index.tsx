@@ -53,7 +53,16 @@ const ImageHighlights: FC<ImageHighlightsProps> = ({ slice }) => {
   }, [update]);
 
   const scrollBy = (dir: 1 | -1) => {
-    scrollerRef.current?.scrollBy({ left: dir * 670, behavior: "smooth" });
+    const el = scrollerRef.current;
+    if (!el) return;
+    // Misura il passo reale (larghezza card + gap) così è corretto a ogni viewport.
+    const cards = el.children;
+    const step =
+      cards.length > 1
+        ? (cards[1] as HTMLElement).offsetLeft -
+          (cards[0] as HTMLElement).offsetLeft
+        : el.clientWidth;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
   if (items.length === 0) return null;

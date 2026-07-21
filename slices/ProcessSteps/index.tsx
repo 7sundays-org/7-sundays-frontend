@@ -57,8 +57,14 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
   const scrollBy = (dir: 1 | -1) => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
-    const isMobile = window.innerWidth < 768;
-    scroller.scrollBy({ left: dir * (isMobile ? scroller.clientWidth : 396), behavior: "smooth" });
+    // Misura il passo reale (card + gap) così è corretto a ogni viewport.
+    const cards = scroller.children;
+    const step =
+      cards.length > 1
+        ? (cards[1] as HTMLElement).offsetLeft -
+          (cards[0] as HTMLElement).offsetLeft
+        : scroller.clientWidth;
+    scroller.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
   if (items.length === 0) return null;

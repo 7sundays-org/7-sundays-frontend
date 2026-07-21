@@ -45,7 +45,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={`${jakarta.variable} ${ppFragment.variable}`}>
+    <html
+      lang="it"
+      className={`${jakarta.variable} ${ppFragment.variable} overflow-x-hidden`}
+    >
       <body className="overflow-x-hidden antialiased">
         <LangHtmlSync />
         <ScrollReveal />

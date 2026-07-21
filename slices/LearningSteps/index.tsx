@@ -39,7 +39,7 @@ const LearningSteps: FC<LearningStepsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full border-t border-black bg-white px-6 py-[80px] md:px-[81px] md:py-[120px]"
+      className="w-full overflow-x-hidden border-t border-black bg-white px-6 py-[80px] md:px-[81px] md:py-[120px]"
     >
       {/* Header */}
       <div className="mb-12 flex flex-col gap-4 md:mb-[80px]">

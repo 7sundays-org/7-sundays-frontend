@@ -52,13 +52,18 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         )}
 
         {buttons && buttons.length > 0 && (
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-6">
+          <div className="mt-4 flex flex-col items-center gap-4 md:flex-row md:flex-wrap md:justify-center md:gap-6">
             {buttons.map((btn: HeroButton, i: number) => (
               <Fragment key={i}>
                 {i > 0 && (
-                  <span aria-hidden className="text-button text-white/60">
-                    |
-                  </span>
+                  <>
+                    {/* Mobile: divisore orizzontale */}
+                    <div aria-hidden className="w-full border-t border-white/30 md:hidden" />
+                    {/* Desktop: divisore verticale */}
+                    <span aria-hidden className="hidden text-button text-white/60 md:inline">
+                      |
+                    </span>
+                  </>
                 )}
                 <Button asChild variant="white" className="tracking-wider">
                   <PrismicNextLink field={btn.button_href}>

@@ -62,7 +62,58 @@ export function LearningStepsCarousel({
     setActiveStep((prev) => (prev === i ? null : i));
 
   return (
-    <div className="relative">
+    <>
+      {/* Mobile: lista verticale numerata, con dettaglio espandibile in verticale */}
+      <div className="md:hidden">
+        {items.map((step, i) => {
+          const isActive = activeStep === i;
+          return (
+            <div key={i} className="border-b border-primary/20">
+              <button
+                type="button"
+                onClick={() => handleStepClick(i)}
+                aria-expanded={isActive}
+                className="w-full py-6 text-center"
+              >
+                <span className="font-serif text-[1.5rem] font-extrabold text-primary">
+                  {i + 1}. {step.label}
+                </span>
+              </button>
+
+              {/* Dettaglio espanso */}
+              <div
+                className={[
+                  "flex flex-col overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out",
+                  isActive
+                    ? "max-h-[800px] opacity-100"
+                    : "max-h-0 opacity-0",
+                ].join(" ")}
+              >
+                {isFilled.image(step.image) && (
+                  <div className="pb-4">
+                    <PrismicNextImage
+                      field={step.image}
+                      width={388}
+                      height={248}
+                      fallbackAlt=""
+                      className="w-full rounded-2xl object-cover"
+                      style={{ height: "248px" }}
+                    />
+                  </div>
+                )}
+                {isFilled.richText(step.description) && (
+                  <div className="pb-6 text-[15px] leading-[1.5] text-foreground/80">
+                    <PrismicRichText field={step.description} />
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: carosello */}
+    <div className="relative hidden overflow-x-hidden md:block">
       {/* Track */}
       <div className="carousel-track overflow-hidden">
         <div
@@ -185,5 +236,6 @@ export function LearningStepsCarousel({
         </>
       )}
     </div>
+    </>
   );
 }

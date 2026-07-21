@@ -56,7 +56,17 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
   }, [update]);
 
   const scrollBy = (dir: 1 | -1) => {
-    scrollerRef.current?.scrollBy({ left: dir * 396, behavior: "smooth" });
+    const el = scrollerRef.current;
+    if (!el) return;
+    // Le card stanno dentro il track interno; misura il passo reale (card + gap).
+    const track = el.firstElementChild;
+    const cards = track?.children;
+    const step =
+      cards && cards.length > 1
+        ? (cards[1] as HTMLElement).offsetLeft -
+          (cards[0] as HTMLElement).offsetLeft
+        : el.clientWidth;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
   if (items.length === 0) return null;
@@ -78,7 +88,7 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
           </h2>
         )}
         {isFilled.richText(body) && (
-          <div className="max-w-[760px] text-[30px] text-foreground">
+          <div className="max-w-[760px] text-[25px]md:text-[30px] text-foreground">
             <PrismicRichText field={body} />
           </div>
         )}
@@ -94,10 +104,10 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
             {items.map((service, i) => (
               <article
                 key={i}
-                className="flex w-[364px] shrink-0 flex-col gap-5"
+                className="flex w-[280px] shrink-0 flex-col gap-5 md:w-[364px]"
               >
                 {service.image?.url && (
-                  <div className="relative h-[545px] w-full shrink-0 overflow-hidden rounded-[8px]">
+                  <div className="relative h-[400px] w-full shrink-0 overflow-hidden rounded-[8px] md:h-[545px]">
                     <PrismicNextImage
                       field={service.image}
                       fill
@@ -130,14 +140,14 @@ const ServicesShowcase: FC<ServicesShowcaseProps> = ({ slice }) => {
               aria-label="Card precedente"
               onClick={() => scrollBy(-1)}
               disabled={atStart}
-              className="absolute top-[272px] left-2 z-10 -translate-y-1/2 md:left-6"
+              className="absolute top-[200px] left-2 z-10 -translate-y-1/2 md:top-[272px] md:left-6"
             />
             <CarouselArrow
               direction="right"
               aria-label="Card successiva"
               onClick={() => scrollBy(1)}
               disabled={atEnd}
-              className="absolute top-[272px] right-2 z-10 -translate-y-1/2 md:right-6"
+              className="absolute top-[200px] right-2 z-10 -translate-y-1/2 md:top-[272px] md:right-6"
             />
           </>
         )}
