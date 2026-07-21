@@ -19,7 +19,7 @@ const EvocativePhrase: FC<EvocativePhraseProps> = ({ slice }) => {
   // H3 evocative phrase: Primary su light, blu scuro su orange, bianco su dark/primary.
   const phraseColor =
     variant === "light"
-      ? "text-primary"
+      ? "text-foreground"
       : variant === "orange"
         ? "text-[#433f4d]"
         : "text-white";
@@ -29,14 +29,14 @@ const EvocativePhrase: FC<EvocativePhraseProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
-        "w-full px-6 py-20 md:py-28 lg:py-[140px] lg:pr-[88px] lg:pl-[223px]",
+        "w-full px-6 py-10 md:py-28 lg:py-[140px] lg:pr-[88px] lg:pl-[223px]",
         bg
       )}
     >
       <div className="flex flex-col gap-10">
         <div
           className={cn(
-            "font-sans text-[2rem] leading-tight font-bold italic md:text-[45px] md:leading-[58px]",
+            "font-sans text-[1.875rem] leading-[40px] font-bold italic md:text-[45px] md:leading-[58px]",
             phraseColor
           )}
         >

@@ -46,7 +46,7 @@ export const TestimonialCard: FC<{ data: TestimonialData }> = ({ data }) => (
         {data.title}
       </p>
     )}
-    <div className="font-sans text-[2rem] leading-tight font-bold text-white md:text-[45px] md:leading-[58px]">
+    <div className="line-clamp-3 font-sans text-[1.875rem] leading-[1.4] font-bold italic text-white md:text-[45px] md:leading-[58px] md:not-italic">
       <PrismicRichText field={data.quote} />
     </div>
     <div className="flex flex-col gap-2">
@@ -122,6 +122,18 @@ export const TestimonialsCarousel: FC<{ items: TestimonialData[] }> = ({
 
       {count > 1 && (
         <>
+          {/* Dots — mobile only */}
+          <div className="mt-8 flex items-center gap-2.5 md:hidden">
+            {items.map((_, i) => (
+              <button
+                key={i}
+                aria-label={`Testimonianza ${i + 1}`}
+                onClick={() => scrollToIndex(i)}
+                className={`size-[6px] rounded-full transition-colors ${i === active ? "bg-white" : "bg-white/40"}`}
+              />
+            ))}
+          </div>
+
           <CarouselArrow
             direction="left"
             aria-label="Testimonianza precedente"

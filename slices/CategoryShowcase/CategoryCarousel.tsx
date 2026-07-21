@@ -60,16 +60,16 @@ export const CategoryCarousel: FC<{ cards: Cards }> = ({ cards }) => {
             }}
             className="flex min-h-[80dvh] w-full shrink-0 snap-start"
           >
-            <div className="flex flex-1 items-center px-12 py-8 md:px-20 md:py-12">
-              <div className="flex h-full max-h-[672px] w-[425px] max-w-full shrink-0 flex-col items-start justify-between gap-[136px]">
-                <div className="flex flex-col gap-6">
+            <div className="flex flex-1 items-center px-8 py-10 md:px-20 md:py-12">
+              <div className="flex h-full max-h-[672px] w-full max-w-[425px] shrink-0 flex-col items-start justify-between gap-16 md:gap-[136px]">
+                <div className="flex flex-col gap-4 md:gap-6">
                   {card.eyebrow && (
-                    <span className="font-sans text-[30px] leading-[58px] font-semibold tracking-[0.05em] text-blue-ink uppercase italic">
+                    <span className="font-sans text-[22px] leading-tight font-semibold tracking-[0.05em] text-blue-ink uppercase italic md:text-[30px] md:leading-[58px]">
                       {card.eyebrow}
                     </span>
                   )}
                   {card.title && (
-                    <h2 className="font-sans text-[55px] leading-[58px] font-bold text-blue-ink italic">
+                    <h2 className="font-sans text-[2rem] leading-tight font-bold text-blue-ink italic md:text-[55px] md:leading-[58px]">
                       <PrismicRichText
                         field={card.title}
                         components={{
@@ -93,7 +93,7 @@ export const CategoryCarousel: FC<{ cards: Cards }> = ({ cards }) => {
               </div>
             </div>
             {card.image?.url && (
-              <div className="flex shrink-0 items-center justify-center p-8 md:p-12">
+              <div className="hidden shrink-0 items-center justify-center p-8 md:flex md:p-12">
                 <div className="relative aspect-[971/672] h-full max-h-[672px] w-auto overflow-hidden rounded-[16px]">
                   <PrismicNextImage
                     field={card.image}

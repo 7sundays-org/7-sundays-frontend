@@ -37,7 +37,7 @@ const AboutTeaser: FC<AboutTeaserProps> = ({ slice }) => {
               </span>
             )}
             {title && (
-              <h2 className="font-sans text-[55px] leading-[58px] font-extrabold text-blue-ink">
+              <h2 className="font-sans text-[2rem] leading-tight font-extrabold text-blue-ink md:text-[55px] md:leading-[58px]">
                 <PrismicRichText
                   field={title}
                   components={{

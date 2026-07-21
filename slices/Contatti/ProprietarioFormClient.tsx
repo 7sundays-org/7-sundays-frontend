@@ -100,7 +100,7 @@ const schema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof schema>, string>>;
 
 const inputClass =
-  "w-full rounded-[6px] border border-lilac-ash bg-porcelain px-4 py-3 text-[14px] placeholder:text-placeholder focus:ring-2 focus:ring-ring/40 focus:outline-none";
+  "w-full rounded-[8px] border border-primary bg-porcelain px-4 py-3 text-[14px] placeholder:text-placeholder focus:ring-2 focus:ring-ring/40 focus:outline-none";
 const errorClass = "mt-1 text-xs text-red-600";
 
 export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
@@ -163,7 +163,7 @@ export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
     <form
       onSubmit={onSubmit}
       noValidate
-      className="mx-auto flex w-full max-w-4xl flex-col gap-[42px]"
+      className="mx-auto flex w-full max-w-4xl flex-col gap-4"
     >
       {/* Row 1: Nome + Email */}
       <div className="grid gap-4 md:grid-cols-2">
@@ -235,7 +235,7 @@ export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
         <textarea
           name="message"
           placeholder={t.message}
-          className={`${inputClass} min-h-[160px] resize-none`}
+          className={`${inputClass} min-h-[191px] resize-none`}
         />
       </div>
 

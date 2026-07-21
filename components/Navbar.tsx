@@ -30,7 +30,7 @@ function Logo({ onLight }: { onLight?: boolean }) {
     <span
       aria-hidden
       className={cn(
-        "block h-[34px] w-[318px] max-w-[55vw] transition-colors duration-300",
+        "block h-[22px] w-[200px] max-w-[42vw] transition-colors duration-300 md:h-[34px] md:w-[318px] md:max-w-[55vw]",
         onLight ? "bg-primary" : "bg-porcelain"
       )}
       style={{
@@ -68,8 +68,12 @@ export function Navbar() {
 
   // Turn the bar solid once the hero (~viewport height) has scrolled past.
   useEffect(() => {
-    const onScroll = () =>
-      setScrolled(window.scrollY > window.innerHeight - 80);
+    const onScroll = () => {
+      const threshold = window.innerWidth < 768
+        ? window.innerHeight * 0.3
+        : window.innerHeight - 80;
+      setScrolled(window.scrollY > threshold);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -102,7 +106,7 @@ export function Navbar() {
             {open && (
               <span
                 className={cn(
-                  "flex items-center gap-2 font-sans text-[30px] leading-[58px] font-medium tracking-[0.05em]",
+                  "flex items-center gap-2 font-sans text-[18px] leading-[40px] font-medium tracking-[0.05em] md:text-[30px] md:leading-[58px]",
                   whiteMode ? "text-primary" : "text-porcelain"
                 )}
               >
@@ -134,19 +138,19 @@ export function Navbar() {
               onClick={() => setOpen((o) => !o)}
               className={cn(
                 "relative cursor-pointer transition-all duration-300 ease-in-out",
-                open ? "size-14" : "h-[16px] w-[114px]"
+                open ? "size-10 md:size-14" : "h-[12px] w-[72px] md:h-[16px] md:w-[114px]"
               )}
             >
               <span
                 className={cn(
-                  "absolute left-0 h-[4px] w-full origin-center transition-all duration-300 ease-in-out",
+                  "absolute left-0 h-[3px] w-full origin-center transition-all duration-300 ease-in-out md:h-[4px]",
                   whiteMode ? "bg-primary" : "bg-porcelain",
                   open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
                 )}
               />
               <span
                 className={cn(
-                  "absolute left-0 h-[4px] w-full origin-center transition-all duration-300 ease-in-out",
+                  "absolute left-0 h-[3px] w-full origin-center transition-all duration-300 ease-in-out md:h-[4px]",
                   whiteMode ? "bg-primary" : "bg-porcelain",
                   open ? "bottom-1/2 translate-y-1/2 -rotate-45" : "bottom-0"
                 )}
@@ -169,19 +173,19 @@ export function Navbar() {
 
       <aside
         className={cn(
-          "fixed top-0 right-0 z-[110] flex h-screen w-[768px] max-w-full flex-col bg-primary px-[92px] py-[64px] transition-transform duration-[400ms] ease-in-out",
+          "fixed top-0 right-0 z-[110] flex h-screen w-[768px] max-w-full flex-col overflow-hidden bg-primary px-8 py-[64px] transition-transform duration-[400ms] ease-in-out md:px-[92px]",
           open ? "translate-x-0" : "translate-x-full"
         )}
         aria-hidden={!open}
       >
         {/* EN/IT and the close (X) live in the header above, over this panel */}
-        <nav className="mt-[122px] flex flex-col items-end gap-8 text-right">
+        <nav className="mt-[80px] flex flex-col items-end gap-5 text-right md:mt-[122px] md:gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="font-serif text-[59px] leading-[1.04] font-extrabold text-porcelain uppercase transition-opacity hover:opacity-80"
+              className="font-serif text-[36px] leading-[1.04] font-extrabold text-porcelain uppercase transition-opacity hover:opacity-80 md:text-[59px]"
             >
               {item.label}
             </Link>

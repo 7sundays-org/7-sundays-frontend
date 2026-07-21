@@ -39,13 +39,13 @@ const Faq: FC<FaqProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-white px-6 py-20 md:px-[90px] md:py-[120px]"
+      className="w-full border-t border-black/50 bg-white px-8 py-10 md:border-0 md:px-[90px] md:py-[120px]"
     >
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
         {/* FAQ column */}
         <div className="flex flex-1 flex-col gap-10">
           {title && (
-            <h2 className="font-serif text-[2.75rem] leading-tight font-extrabold text-primary md:text-[70px]">
+            <h2 className="font-serif text-[1.875rem] leading-tight font-extrabold text-primary md:text-[70px]">
               <PrismicRichText
                 field={title}
                 components={{ paragraph: ({ children }) => <>{children}</> }}
@@ -55,7 +55,7 @@ const Faq: FC<FaqProps> = ({ slice }) => {
 
           <div className="flex flex-col">
             {faqs.map((item, i) => (
-              <details key={i} className="group border-b border-black/15">
+              <details key={i} className="group border-b border-black/50">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-body text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
                   {item.question}
                   <ChevronDown className="size-5 shrink-0 text-foreground/60 transition-transform duration-300 group-open:rotate-180" />
@@ -88,7 +88,7 @@ const Faq: FC<FaqProps> = ({ slice }) => {
             <div className="flex flex-col lg:w-[38%] lg:shrink-0 lg:pt-[88px]">
               <div className="flex flex-col items-center justify-center gap-8 rounded-[32px] bg-dusty-rose px-10 py-16 text-center md:px-[92px] md:py-[140px]">
                 {isFilled.richText(cta_title) && (
-                  <div className="font-sans text-[35px] leading-[42px] font-semibold text-primary">
+                  <div className="font-sans text-[1.5rem] leading-tight font-semibold text-primary md:text-[35px] md:leading-[42px]">
                     <PrismicRichText field={cta_title} />
                   </div>
                 )}

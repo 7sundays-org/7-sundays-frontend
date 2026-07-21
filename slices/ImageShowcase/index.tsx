@@ -106,9 +106,9 @@ const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
               {/* Maschera per leggibilità del testo bianco */}
               <div className="absolute inset-0 bg-gun-metal/40" />
 
-              {/* Elenco luoghi / didascalia, in basso a sinistra */}
+              {/* Didascalia bottom-left — solo desktop */}
               {isFilled.richText(slide.caption) && (
-                <div className="absolute bottom-8 left-6 z-10 flex flex-col gap-2 font-sans text-[22px] leading-[1.4] font-bold text-porcelain italic md:bottom-[64px] md:left-[64px] md:text-[32px]">
+                <div className="absolute bottom-8 left-6 z-10 hidden flex-col gap-2 font-sans text-[22px] leading-[1.4] font-bold text-porcelain italic md:flex md:bottom-[64px] md:left-[64px] md:text-[32px]">
                   <PrismicRichText
                     field={slide.caption}
                     components={{
@@ -118,11 +118,11 @@ const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
                 </div>
               )}
 
-              {/* CTA, in basso a destra */}
+              {/* CTA bottom-right — solo desktop */}
               {isFilled.link(slide.cta_link) && (
                 <PrismicNextLink
                   field={slide.cta_link}
-                  className="absolute right-6 bottom-8 z-10 inline-flex items-center gap-2 font-sans text-[18px] font-bold text-porcelain transition-opacity hover:opacity-80 md:right-[64px] md:bottom-[64px] md:text-[22px]"
+                  className="absolute right-[64px] bottom-[64px] z-10 hidden items-center gap-2 font-sans text-[22px] font-bold text-porcelain transition-opacity hover:opacity-80 md:inline-flex"
                 >
                   {slide.cta_label || "Scopri di più"}
                   <ArrowUpRight className="size-5" />
@@ -132,9 +132,30 @@ const ImageShowcase: FC<ImageShowcaseProps> = ({ slice }) => {
           ))}
         </div>
 
-        {/* Titolo serif sovrapposto, centrato */}
+        {/* Overlay mobile: titolo + CTA centrati */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-6 px-6 text-center md:hidden">
+          {isFilled.richText(title) && (
+            <div className="pointer-events-none font-serif text-[44px] leading-none font-extrabold text-porcelain">
+              <PrismicRichText
+                field={title}
+                components={{ paragraph: ({ children }) => <>{children}</> }}
+              />
+            </div>
+          )}
+          {items[active] && isFilled.link(items[active].cta_link) && (
+            <PrismicNextLink
+              field={items[active].cta_link}
+              className="inline-flex items-center gap-2 font-sans text-[15px] font-bold uppercase tracking-widest text-porcelain transition-opacity hover:opacity-80"
+            >
+              {items[active].cta_label || "Scopri di più"}
+              <ArrowUpRight className="size-4" />
+            </PrismicNextLink>
+          )}
+        </div>
+
+        {/* Overlay desktop: solo titolo centrato */}
         {isFilled.richText(title) && (
-          <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center font-serif text-[44px] leading-none font-extrabold text-porcelain md:text-[70px]">
+          <div className="pointer-events-none absolute inset-0 z-10 hidden items-center justify-center px-6 text-center font-serif text-[70px] leading-none font-extrabold text-porcelain md:flex">
             <PrismicRichText
               field={title}
               components={{ paragraph: ({ children }) => <>{children}</> }}

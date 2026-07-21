@@ -119,7 +119,7 @@ export const AboutFormClient: FC<{ submitLabel?: string | null }> = ({
     <form
       onSubmit={onSubmit}
       noValidate
-      className="mx-auto flex w-full max-w-2xl flex-col gap-[42px]"
+      className="mx-auto flex w-full max-w-2xl flex-col gap-4"
     >
       <div className="grid gap-4 md:grid-cols-3">
         <div>

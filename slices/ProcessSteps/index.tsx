@@ -55,7 +55,10 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
   }, [update]);
 
   const scrollBy = (dir: 1 | -1) => {
-    scrollerRef.current?.scrollBy({ left: dir * 396, behavior: "smooth" });
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const isMobile = window.innerWidth < 768;
+    scroller.scrollBy({ left: dir * (isMobile ? scroller.clientWidth : 396), behavior: "smooth" });
   };
 
   if (items.length === 0) return null;
@@ -74,14 +77,14 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
 
       <div className="relative">
         {/* Header */}
-        <div className="flex flex-col gap-2 px-6 pt-[80px] pb-[40px] md:px-[90px]">
+        <div className="flex flex-col gap-2 px-6 pt-10 pb-8 md:px-[90px] md:pt-[80px] md:pb-[40px]">
           {eyebrow && (
-            <span className="font-sans text-[30px] leading-[47px] font-semibold tracking-[0.05em] text-primary italic">
+            <span className="font-sans text-[20px] leading-[32px] font-semibold tracking-[0.05em] text-primary italic md:text-[30px] md:leading-[47px]">
               {eyebrow}
             </span>
           )}
           {title && (
-            <h2 className="font-sans text-[2.5rem] leading-tight font-extrabold text-primary md:text-[55px] md:leading-[58px]">
+            <h2 className="font-sans text-[45px] leading-tight font-extrabold text-primary md:text-[55px] md:leading-[58px]">
               <PrismicRichText
                 field={title}
                 components={{ paragraph: ({ children }) => <>{children}</> }}
@@ -94,31 +97,45 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
         <div className="relative">
           <div
             ref={scrollerRef}
-            className="flex gap-[32px] overflow-x-auto px-6 pb-12 md:px-[89px] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex snap-x snap-mandatory overflow-x-auto pb-12 [-ms-overflow-style:none] [scrollbar-width:none] md:snap-none md:gap-[32px] md:px-[89px] [&::-webkit-scrollbar]:hidden"
           >
             {items.map((step, i) => (
               <article
                 key={i}
-                className="flex w-[364px] shrink-0 flex-col gap-5"
+                className="flex w-full shrink-0 snap-start flex-col md:w-[364px] md:gap-5"
               >
-                {step.image?.url && (
-                  <div className="relative h-[540px] w-full overflow-hidden rounded-[8px] bg-neutral-200">
-                    <PrismicNextImage
-                      field={step.image}
-                      fill
-                      fallbackAlt=""
-                      className="object-cover"
-                    />
+                {/* Mobile: label sopra l'immagine, sul fondo rosato */}
+                {step.label && (
+                  <div className="px-6 pb-3 pt-1 md:hidden">
+                    <span className="font-sans text-[20px] leading-[30px] font-semibold text-primary">
+                      {step.label}
+                    </span>
                   </div>
                 )}
-                <div className="flex flex-col gap-1">
+
+                {/* Immagine — con padding laterale su mobile */}
+                {step.image?.url && (
+                  <div className="px-6 md:px-0">
+                    <div className="relative h-[502px] w-full overflow-hidden rounded-[8px] bg-neutral-200 md:h-[540px]">
+                      <PrismicNextImage
+                        field={step.image}
+                        fill
+                        fallbackAlt=""
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Label (solo desktop) + descrizione */}
+                <div className="mt-4 flex flex-col gap-1 px-6 md:mt-0 md:px-0">
                   {step.label && (
-                    <span className="font-sans text-[25px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase">
+                    <span className="hidden font-sans text-[25px] leading-[30px] font-bold tracking-[0.05em] text-foreground uppercase md:block">
                       {step.label}
                     </span>
                   )}
                   {step.description && (
-                    <div className="font-sans text-[25px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
+                    <div className="font-sans text-[20px] leading-[30px] font-semibold tracking-[0.05em] text-foreground italic">
                       <PrismicRichText field={step.description} />
                     </div>
                   )}
