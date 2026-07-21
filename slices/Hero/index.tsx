@@ -28,7 +28,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           fill
           priority
           fallbackAlt=""
-          className="absolute inset-0 -z-20 object-cover"
+          className="absolute inset-0 -z-20 object-cover object-bottom"
         />
       )}
       {/* Maschera per leggibilità del testo sopra la foto */}
