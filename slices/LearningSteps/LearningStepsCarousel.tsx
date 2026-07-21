@@ -89,7 +89,7 @@ export function LearningStepsCarousel({
                 <div className="relative h-[280px] shrink-0 overflow-hidden md:h-[380px]">
                   <span
                     aria-hidden
-                    className="absolute top-1/2 left-[-28px] -translate-y-1/2 font-serif leading-none font-extrabold text-transparent [-webkit-text-stroke:2px_var(--color-sandy-clay)] md:left-[-45px] md:[-webkit-text-stroke:3px_var(--color-sandy-clay)]"
+                    className={`absolute top-1/2 left-[-28px] -translate-y-1/2 font-serif leading-none font-extrabold text-transparent md:left-[-45px] ${isActive ? "[-webkit-text-stroke:2px_var(--color-primary)] md:[-webkit-text-stroke:3px_var(--color-primary)]" : "[-webkit-text-stroke:2px_var(--color-sandy-clay)] md:[-webkit-text-stroke:3px_var(--color-sandy-clay)]"}`}
                     style={{ fontSize: "clamp(200px, 15vw, 320px)" }}
                   >
                     {i + 1}
@@ -119,16 +119,17 @@ export function LearningStepsCarousel({
                       : "max-h-0 opacity-0",
                   ].join(" ")}
                 >
-                  {/* Immagine full-bleed, nessun padding */}
                   {isFilled.image(step.image) && (
-                    <PrismicNextImage
-                      field={step.image}
-                      width={388}
-                      height={248}
-                      fallbackAlt=""
-                      className="w-full rounded-2xl object-cover"
-                      style={{ height: "248px" }}
-                    />
+                    <div className="px-4 md:px-6">
+                      <PrismicNextImage
+                        field={step.image}
+                        width={388}
+                        height={248}
+                        fallbackAlt=""
+                        className="w-full rounded-2xl object-cover"
+                        style={{ height: "248px" }}
+                      />
+                    </div>
                   )}
 
                   {/* Titolo e descrizione */}

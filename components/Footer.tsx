@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import { dict, langFromPathname, localizeHref } from "@/lib/i18n";
 
 const NAV_BASE = [
@@ -58,8 +58,10 @@ export function Footer() {
 
         {/* Col 2: Informazioni */}
         <address className="flex flex-col gap-2 text-body text-foreground/80 not-italic">
-          <span>Via Andrea Maria Ampère, 56</span>
-          <span className="mt-2" />
+          <span className="flex items-center gap-2">
+            <MapPin size={14} className="shrink-0" />
+            Via Andrea Maria Ampère, 56
+          </span>
           <a href="mailto:info@7sundays.it" className="flex items-center gap-2 hover:underline">
             <Mail size={14} className="shrink-0" />
             info@7sundays.it
@@ -68,7 +70,8 @@ export function Footer() {
             <Phone size={14} className="shrink-0" />
             +39 393 004 7956
           </a>
-          <a href="https://7sundays.it" className="hover:underline">
+          <a href="https://7sundays.it" className="flex items-center gap-2 hover:underline">
+            <Globe size={14} className="shrink-0" />
             7sundays.it
           </a>
         </address>
