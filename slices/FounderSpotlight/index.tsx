@@ -30,7 +30,7 @@ const FounderSpotlight: FC<FounderSpotlightProps> = ({ slice }) => {
     >
       <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-[10px]">
         {image?.url && (
-          <div className="relative aspect-[892/988] w-full shrink-0 overflow-hidden rounded-[16px] bg-neutral-200 md:w-[45%]">
+          <div className="relative aspect-[892/988] w-full shrink-0 overflow-hidden rounded-[16px] bg-neutral-200 md:w-[40%]">
             <PrismicNextImage
               field={image}
               fill
