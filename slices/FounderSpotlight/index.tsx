@@ -52,7 +52,7 @@ const FounderSpotlight: FC<FounderSpotlightProps> = ({ slice }) => {
             </span>
           )}
           {story && (
-            <div className="flex max-w-[586px] flex-col gap-6 font-sans text-[1.5rem] leading-snug font-medium text-foreground md:text-[30px] md:leading-[42px]">
+            <div className="flex flex-col gap-6 font-sans text-[1.5rem] leading-snug font-medium text-foreground md:text-[30px] md:leading-[42px]">
               <PrismicRichText field={story} />
             </div>
           )}

@@ -119,9 +119,15 @@ const Gallery: FC<GalleryProps> = ({ slice }) => {
             ))}
           </div>
 
+          {/* Overlay sfumato per rendere leggibile la didascalia bianca sopra
+              immagini chiare (solo quando c'è una didascalia). */}
+          {title && (
+            <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+          )}
+
           {/* Caption overlaid on the image, bottom-right */}
           {title && (
-            <div className="pointer-events-none absolute right-6 bottom-8 z-10 max-w-[748px] text-right font-sans text-[2rem] leading-tight font-bold text-primary italic md:right-12 md:bottom-12 md:text-[40px] md:leading-[48px]">
+            <div className="pointer-events-none absolute right-6 bottom-8 z-10 max-w-[748px] text-right font-sans text-[2rem] leading-tight font-bold text-white italic md:right-12 md:bottom-12 md:text-[40px] md:leading-[48px]">
               <PrismicRichText field={title} />
             </div>
           )}

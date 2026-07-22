@@ -30,9 +30,14 @@ export function LearningStepsCarousel({
   const [index, setIndex] = useState(0);
   const [activeStep, setActiveStep] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const [viewportW, setViewportW] = useState(0);
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
+    const check = () => {
+      setIsMobile(window.innerWidth < 768);
+      setViewportW(viewportRef.current?.clientWidth ?? 0);
+    };
     check();
     window.addEventListener("resize", check, { passive: true });
     return () => window.removeEventListener("resize", check);
@@ -51,6 +56,15 @@ export function LearningStepsCarousel({
     // if the expanded item is before the current viewport start, shift left by the extra width
     if (activeStep !== null && activeStep < index) {
       offset += expandedW - normalW;
+    }
+    // Se l'item espanso sfora il bordo destro del viewport (tipico dell'ultima
+    // slide), sposta la track a sinistra quanto basta per mostrarlo per intero,
+    // senza però superare la fine del contenuto (niente spazio vuoto a destra).
+    if (activeStep !== null && viewportW > 0) {
+      const activeRight = activeStep * normalW + expandedW;
+      const totalW = items.length * normalW + (expandedW - normalW);
+      const maxOffset = Math.max(0, totalW - viewportW);
+      offset = Math.min(Math.max(offset, activeRight - viewportW), maxOffset);
     }
     return offset;
   };
@@ -115,7 +129,7 @@ export function LearningStepsCarousel({
       {/* Desktop: carosello */}
     <div className="relative hidden overflow-x-hidden md:block">
       {/* Track */}
-      <div className="carousel-track overflow-hidden">
+      <div ref={viewportRef} className="carousel-track overflow-hidden">
         <div
           className="flex gap-0 transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${getTranslate()}px)` }}
