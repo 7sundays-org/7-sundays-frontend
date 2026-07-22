@@ -60,7 +60,7 @@ const Faq: FC<FaqProps> = ({ slice }) => {
         {/* Immagine laterale (variante Host) — ha priorità sul box CTA */}
         {hasSideImage ? (
           <div className="lg:w-[38%] lg:shrink-0">
-            <div className="relative aspect-[624/802] w-full max-h-[480px] rounded-[8px]">
+            <div className="relative aspect-[624/802] w-full max-h-[480px] overflow-hidden rounded-[16px] shadow-[-20px_0_40px_-12px_rgba(0,0,0,0.35)]">
               <PrismicNextImage
                 field={side_image}
                 fill

@@ -46,27 +46,47 @@ export function LearningStepsCarousel({
   const normalW = isMobile ? NORMAL_W.mobile : NORMAL_W.desktop;
   const expandedW = isMobile ? EXPANDED_W.mobile : EXPANDED_W.desktop;
 
-  const visible = isMobile ? visibleMobile : visibleDesktop;
+  // Quante card entrano davvero nel viewport a questa larghezza: si ricava dal
+  // viewport reale, non da un valore fisso, così l'ultima slide resta sempre
+  // raggiungibile su qualsiasi monitor (prima il conteggio fisso a 5 nascondeva
+  // la freccia e rendeva irraggiungibile la 7ª slide su schermi più stretti).
+  // Prima del mount (viewportW = 0) si usa il fallback passato via prop.
+  const cardsThatFit =
+    viewportW > 0
+      ? Math.max(1, Math.floor(viewportW / normalW))
+      : visibleDesktop;
+  const visible = isMobile ? visibleMobile : cardsThatFit;
   const maxIndex = Math.max(0, items.length - visible);
-  const canPrev = index > 0;
-  const canNext = index < maxIndex;
+  const clampedIndex = Math.min(index, maxIndex);
+  const canPrev = clampedIndex > 0;
+  const canNext = clampedIndex < maxIndex;
+
+  // Se il viewport si allarga (maxIndex diminuisce) riallinea l'indice così la
+  // track non resta scrollata oltre l'ultima slide.
+  useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex));
+  }, [maxIndex]);
 
   const getTranslate = () => {
-    let offset = index * normalW;
+    let offset = clampedIndex * normalW;
     // if the expanded item is before the current viewport start, shift left by the extra width
-    if (activeStep !== null && activeStep < index) {
+    if (activeStep !== null && activeStep < clampedIndex) {
       offset += expandedW - normalW;
     }
-    // Se l'item espanso sfora il bordo destro del viewport (tipico dell'ultima
-    // slide), sposta la track a sinistra quanto basta per mostrarlo per intero,
-    // senza però superare la fine del contenuto (niente spazio vuoto a destra).
-    if (activeStep !== null && viewportW > 0) {
-      const activeRight = activeStep * normalW + expandedW;
-      const totalW = items.length * normalW + (expandedW - normalW);
+    // Clamp a destra: la track non supera mai la fine del contenuto, così non
+    // resta spazio vuoto dopo l'ultima slide. Se un item espanso sfora il bordo
+    // destro, sposta quanto basta per mostrarlo per intero.
+    if (viewportW > 0) {
+      const totalW =
+        items.length * normalW + (activeStep !== null ? expandedW - normalW : 0);
       const maxOffset = Math.max(0, totalW - viewportW);
-      offset = Math.min(Math.max(offset, activeRight - viewportW), maxOffset);
+      if (activeStep !== null) {
+        const activeRight = activeStep * normalW + expandedW;
+        offset = Math.max(offset, activeRight - viewportW);
+      }
+      offset = Math.min(offset, maxOffset);
     }
-    return offset;
+    return Math.max(0, offset);
   };
 
   const prev = () => setIndex((i) => Math.max(0, i - 1));
@@ -216,7 +236,7 @@ export function LearningStepsCarousel({
       </div>
 
       {/* Frecce in overlay */}
-      {items.length > visibleDesktop && (
+      {maxIndex > 0 && (
         <>
           <CarouselArrow
             direction="left"
@@ -242,7 +262,7 @@ export function LearningStepsCarousel({
                 onClick={() => setIndex(i)}
                 aria-label={`Vai al gruppo ${i + 1}`}
                 className={`size-2 rounded-full transition-colors ${
-                  i === index ? "bg-primary" : "bg-primary/30"
+                  i === clampedIndex ? "bg-primary" : "bg-primary/30"
                 }`}
               />
             ))}

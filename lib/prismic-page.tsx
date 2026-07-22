@@ -60,5 +60,11 @@ export async function renderPage(key: PageKey, lang: Lang) {
     );
   }
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <SliceZone
+      slices={page.data.slices}
+      components={components}
+      context={{ page: key }}
+    />
+  );
 }

@@ -6,6 +6,8 @@ import { isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { CarouselArrow } from "@/components/ui/carousel-arrow";
+import { cn } from "@/lib/utils";
+import type { PageKey } from "@/lib/pages";
 
 type ImageHighlightItem = {
   image: prismic.ImageField;
@@ -24,10 +26,16 @@ type ImageHighlightsSlice = prismic.SharedSlice<
   >
 >;
 
-export type ImageHighlightsProps = SliceComponentProps<ImageHighlightsSlice>;
+export type ImageHighlightsProps = SliceComponentProps<
+  ImageHighlightsSlice,
+  { page?: PageKey }
+>;
 
-const ImageHighlights: FC<ImageHighlightsProps> = ({ slice }) => {
+const ImageHighlights: FC<ImageHighlightsProps> = ({ slice, context }) => {
   const items = (slice.primary.items ?? []).filter((it) => it.image?.url);
+  // Sulla pagina Soggiorni il carosello segue la EvocativePhrase: rimuoviamo il
+  // padding-top per avvicinarlo alla frase. Sulle altre pagine resta invariato.
+  const noTopPadding = context?.page === "hosting";
 
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
@@ -126,7 +134,10 @@ const ImageHighlights: FC<ImageHighlightsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-white py-16 md:py-[80px]"
+      className={cn(
+        "w-full bg-white pb-16 md:pb-[80px]",
+        noTopPadding ? "pt-0" : "pt-16 md:pt-[80px]"
+      )}
     >
       <div
         className="relative"
@@ -155,7 +166,7 @@ const ImageHighlights: FC<ImageHighlightsProps> = ({ slice }) => {
               </div>
               <div className="flex flex-col gap-3">
                 {it.title && (
-                  <h3 className="font-sans text-[28px] leading-tight font-bold text-foreground italic md:text-[40px]">
+                  <h3 className="font-sans text-[20px] leading-tight font-semibold text-foreground italic md:text-[30px]">
                     {it.title}
                   </h3>
                 )}
