@@ -173,7 +173,7 @@ export function Navbar() {
 
       <aside
         className={cn(
-          "fixed top-0 right-0 z-[110] flex h-screen w-[768px] max-w-full flex-col overflow-hidden bg-primary px-8 py-[64px] transition-transform duration-[400ms] ease-in-out md:px-[92px]",
+          "fixed top-0 right-0 z-[110] flex h-screen w-[600px] max-w-full flex-col overflow-hidden bg-primary px-8 py-[64px] transition-transform duration-[400ms] ease-in-out md:px-[92px]",
           open ? "translate-x-0" : "translate-x-full"
         )}
         aria-hidden={!open}
@@ -185,7 +185,7 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="font-serif text-[36px] leading-[1.04] font-extrabold text-porcelain uppercase transition-opacity hover:opacity-80 md:text-[59px]"
+              className="font-serif text-[30px] leading-[1.04] font-extrabold text-porcelain uppercase transition-opacity hover:opacity-80 md:text-[46px]"
             >
               {item.label}
             </Link>
