@@ -15,16 +15,20 @@ const NAV_BASE = [
 
 const SOCIALS = [
   {
-    label: "LinkedIn",
-    href: "https://linkedin.com/company/7sundays",
-    name: "LinkedIn 7Sundays",
+    label: "Instagram 7Sundays",
+    href: "https://www.instagram.com/7sundays.it/",
+    name: "Instagram 7Sundays",
   },
   {
-    label: "Instagram",
-    href: "https://instagram.com/",
-    name: "Instagram Elena (Personal Branding)",
+    label: "Instagram Elena Pirò",
+    href: "https://www.instagram.com/elena7sundays/",
+    name: "Instagram Elena Pirò",
   },
-  { label: "TikTok", href: "https://tiktok.com", name: "TikTok" },
+  {
+    label: "TikTok 7Sundays",
+    href: "https://www.tiktok.com/@7sundays",
+    name: "TikTok 7Sundays",
+  },
 ];
 
 export function Footer() {
