@@ -1,5 +1,11 @@
 import type { Lang } from "@/lib/i18n";
 
+/** Primary domain: the apex 7sundays.it redirects here, so canonicals use it. */
+export const SITE_URL = "https://www.7sundays.it";
+
+/** Static (non-Prismic) legal page, canonical (Italian) path. */
+export const PRIVACY_POLICY_PATH = "/privacy-policy";
+
 /**
  * Registry of the site's single-type pages. Each entry maps a route to its
  * Prismic custom type plus per-language metadata fallbacks (used only when the

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import { dict, langFromPathname, localizeHref } from "@/lib/i18n";
+import { PRIVACY_POLICY_PATH } from "@/lib/pages";
 
 const NAV_BASE = [
   { key: "about", href: "/about" },
@@ -116,9 +117,17 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mt-12 border-t border-border pt-6 text-right text-sm text-foreground/60">
-        Designed and developed by{" "}
-        <span className="font-semibold text-foreground/80">Diana Lab</span>
+      <div className="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-border pt-6 text-sm text-foreground/60">
+        <Link
+          href={localizeHref(PRIVACY_POLICY_PATH, lang)}
+          className="transition-colors hover:text-foreground"
+        >
+          {dict[lang].footer.privacy}
+        </Link>
+        <span>
+          Designed and developed by{" "}
+          <span className="font-semibold text-foreground/80">Diana Lab</span>
+        </span>
       </div>
     </footer>
   );

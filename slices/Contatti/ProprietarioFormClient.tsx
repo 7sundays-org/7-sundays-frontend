@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import { usePathname } from "next/navigation";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import { PrivacyNotice } from "@/components/PrivacyNotice";
 import { langFromPathname } from "@/lib/i18n";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -238,6 +239,8 @@ export const ProprietarioFormClient: FC<{ submitLabel?: string | null }> = ({
           className={`${inputClass} min-h-[191px] resize-none`}
         />
       </div>
+
+      <PrivacyNotice />
 
       <div className="flex items-center justify-center gap-3 pt-2">
         <Button type="submit" variant="dark" disabled={status === "submitting"}>

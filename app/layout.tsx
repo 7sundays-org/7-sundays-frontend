@@ -6,6 +6,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { LangHtmlSync } from "@/components/LangHtmlSync";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { SiteStructuredData } from "@/components/StructuredData";
+import { SITE_URL } from "@/lib/pages";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -34,7 +36,7 @@ const ppFragment = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://7sundays.it"),
+  metadataBase: new URL(SITE_URL),
   title: "7 Sundays",
   description: "7 Sundays frontend",
 };
@@ -50,6 +52,7 @@ export default function RootLayout({
       className={`${jakarta.variable} ${ppFragment.variable} overflow-x-hidden`}
     >
       <body className="overflow-x-hidden antialiased">
+        <SiteStructuredData />
         <LangHtmlSync />
         <ScrollReveal />
         <Navbar />

@@ -6,11 +6,17 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import {
+  canonicalPath,
   dict,
   langFromPathname,
   localizeHref,
   switchLangHref,
 } from "@/lib/i18n";
+import { PRIVACY_POLICY_PATH } from "@/lib/pages";
+
+// Pages without a full-screen hero: the bar starts solid, otherwise the light
+// logo and hamburger would sit on a light background.
+const SOLID_BAR_PATHS: string[] = [PRIVACY_POLICY_PATH];
 
 const NAV_BASE = [
   { key: "home", href: "/" },
@@ -79,9 +85,10 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Depends on scroll only — opening the menu must not change the bar's
-  // background or position.
-  const whiteMode = scrolled;
+  // Depends on scroll and page only — opening the menu must not change the
+  // bar's background or position.
+  const whiteMode =
+    scrolled || SOLID_BAR_PATHS.includes(canonicalPath(pathname));
 
   return (
     <>

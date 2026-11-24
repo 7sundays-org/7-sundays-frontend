@@ -1,9 +1,10 @@
 import { FC } from "react";
 import type * as prismic from "@prismicio/client";
-import { isFilled } from "@prismicio/client";
+import { asText, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/StructuredData";
 import { FaqAccordion } from "./FaqAccordion";
 
 
@@ -36,12 +37,25 @@ const Faq: FC<FaqProps> = ({ slice }) => {
   const faqs = (items ?? []).filter((i) => i.question);
   const hasSideImage = isFilled.image(side_image);
 
+  // FAQPage structured data: only questions that have an answer qualify.
+  const answered = faqs.filter((i) => isFilled.richText(i.answer));
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: answered.map((i) => ({
+      "@type": "Question",
+      name: i.question,
+      acceptedAnswer: { "@type": "Answer", text: asText(i.answer) },
+    })),
+  };
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="w-full border-t border-black/50 bg-white px-8 py-10 md:border-0 md:px-[90px] md:py-[120px]"
     >
+      {answered.length > 0 && <JsonLd data={faqSchema} />}
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
         {/* FAQ column */}
         <div className="flex flex-1 flex-col gap-10">

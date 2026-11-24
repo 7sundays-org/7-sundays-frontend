@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import { usePathname } from "next/navigation";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import { PrivacyNotice } from "@/components/PrivacyNotice";
 import { langFromPathname } from "@/lib/i18n";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -45,7 +46,8 @@ const STRINGS = {
     guests: "Quante persone sarete?",
     accommodation: "Che tipo di alloggio stai cercando? *",
     reason: "Qual è il motivo del soggiorno?",
-    message: "Hai esigenze particolari?",
+    message:
+      "Hai richieste particolari? (non indicare informazioni sulla salute)",
     submit: "Invia",
     submitting: "Invio…",
     success: "Messaggio inviato. Ti ricontatteremo a breve.",
@@ -68,7 +70,7 @@ const STRINGS = {
     guests: "How many guests will there be?",
     accommodation: "What type of accommodation are you looking for? *",
     reason: "What is the reason for your stay?",
-    message: "Do you have any special requirements?",
+    message: "Any special requests? (please don't include health information)",
     submit: "Send",
     submitting: "Sending…",
     success: "Message sent. We'll get back to you shortly.",
@@ -250,6 +252,8 @@ export const SoggiorniFormClient: FC<{ submitLabel?: string | null }> = ({
           className={`${inputClass} min-h-[160px] resize-none`}
         />
       </div>
+
+      <PrivacyNotice />
 
       <div className="flex items-center justify-center gap-3 pt-2">
         <Button type="submit" variant="dark" disabled={status === "submitting"}>

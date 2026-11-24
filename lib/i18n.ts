@@ -24,7 +24,7 @@ export function langFromPathname(pathname: string): Lang {
 }
 
 /** Strips the `/en` prefix to get the canonical (Italian) path. */
-function canonicalPath(pathname: string): string {
+export function canonicalPath(pathname: string): string {
   if (pathname === "/en") return "/";
   if (pathname.startsWith("/en/")) return pathname.slice(3);
   return pathname;
@@ -65,6 +65,11 @@ export const dict = {
       pm: "Property manager",
       stays: "Soggiorni",
       contact: "Contatti",
+      privacy: "Privacy Policy",
+    },
+    privacyNotice: {
+      text: "Titolare del trattamento è 7Sundays S.r.l. Useremo i tuoi dati per rispondere alla tua richiesta, anche tramite fornitori con sede negli Stati Uniti. Puoi esercitare i tuoi diritti, incluso quello di opposizione, scrivendo a info@7sundays.it. Leggi la",
+      link: "Privacy Policy",
     },
   },
   en: {
@@ -82,6 +87,11 @@ export const dict = {
       pm: "Property manager",
       stays: "Stays",
       contact: "Contact",
+      privacy: "Privacy Policy",
+    },
+    privacyNotice: {
+      text: "7Sundays S.r.l. is the data controller. We'll use your data to reply to your request, including through providers based in the United States. You can exercise your rights, including the right to object, by writing to info@7sundays.it. Read our",
+      link: "Privacy Policy",
     },
   },
 } as const;

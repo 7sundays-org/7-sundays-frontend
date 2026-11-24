@@ -11,7 +11,7 @@ import { PAGES, type PageKey } from "@/lib/pages";
  * requested locale may not exist yet, so we fall back to the master document
  * to avoid rendering an empty page.
  */
-async function getPage(key: PageKey, lang: Lang) {
+export async function getPage(key: PageKey, lang: Lang) {
   const client = createClient();
   const { type } = PAGES[key];
   const page = await client
