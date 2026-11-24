@@ -42,6 +42,16 @@ const SECTION_LABELS: Record<string, string> = {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+/** Escapes user input before it goes into the email HTML (no injected markup). */
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function POST(req: Request) {
   const contentType = req.headers.get("content-type") ?? "";
 
@@ -67,7 +77,7 @@ export async function POST(req: Request) {
     .filter(([k, v]) => k !== "form" && v !== undefined && v !== "")
     .map(
       ([k, v]) =>
-        `<tr><td style="padding:4px 12px 4px 0;font-weight:600;text-transform:capitalize">${k.replace(/_/g, " ")}</td><td style="padding:4px 0">${v}</td></tr>`
+        `<tr><td style="padding:4px 12px 4px 0;font-weight:600;text-transform:capitalize">${k.replace(/_/g, " ")}</td><td style="padding:4px 0">${escapeHtml(v)}</td></tr>`
     )
     .join("");
 
@@ -79,7 +89,7 @@ export async function POST(req: Request) {
       replyTo: data.email,
       subject: `[${section}] Richiesta da ${data.name} #${crypto.randomUUID().slice(0, 8)}`,
       html: `
-        <h2 style="margin:0 0 16px">[${section}] Richiesta da ${data.name}</h2>
+        <h2 style="margin:0 0 16px">[${section}] Richiesta da ${escapeHtml(data.name)}</h2>
         <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
           ${rows}
         </table>
